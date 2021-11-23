@@ -1,0 +1,26 @@
+import { ViewEntity, ViewColumn } from 'typeorm';
+
+@ViewEntity({
+  schema: 'information_schema',
+  name: 'constraint_table_usage',
+  synchronize: false,
+})
+export class ConstraintTableUsage {
+  @ViewColumn({ name: 'table_catalog' })
+  public readonly table_catalog!: string | null /* sql_identifier */;
+
+  @ViewColumn({ name: 'table_schema' })
+  public readonly table_schema!: string | null /* sql_identifier */;
+
+  @ViewColumn({ name: 'table_name' })
+  public readonly table_name!: string | null /* sql_identifier */;
+
+  @ViewColumn({ name: 'constraint_catalog' })
+  public readonly constraint_catalog!: string | null /* sql_identifier */;
+
+  @ViewColumn({ name: 'constraint_schema' })
+  public readonly constraint_schema!: string | null /* sql_identifier */;
+
+  @ViewColumn({ name: 'constraint_name' })
+  public readonly constraint_name!: string | null /* sql_identifier */;
+}

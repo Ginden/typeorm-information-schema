@@ -1,0 +1,46 @@
+version: '3.7'
+services:
+  postgres10:
+    image: postgres:10
+    environment:
+      POSTGRES_USER: 'FOOBAR'
+      POSTGRES_PASSWORD: 'FOOBAR'
+      POSTGRES_DB: 'FOOBAR'
+    ports:
+      - 55432:5432
+  postgres11:
+    image: postgres:11
+    environment:
+      POSTGRES_USER: 'FOOBAR'
+      POSTGRES_PASSWORD: 'FOOBAR'
+      POSTGRES_DB: 'FOOBAR'
+    ports:
+      - 55432:5432
+  postgres12:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: 'FOOBAR'
+      POSTGRES_PASSWORD: 'FOOBAR'
+      POSTGRES_DB: 'FOOBAR'
+    ports:
+      - 55432:5432
+  postgres13:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: 'FOOBAR'
+      POSTGRES_PASSWORD: 'FOOBAR'
+      POSTGRES_DB: 'FOOBAR'
+    ports:
+      - 55432:5432
+  postgres14:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: 'FOOBAR'
+      POSTGRES_PASSWORD: 'FOOBAR'
+      POSTGRES_DB: 'FOOBAR'
+    ports:
+      - 55432:5432
+#  mysql8:
+#    image: mysql:8
+#  mysql57:
+#    image: mysql:57

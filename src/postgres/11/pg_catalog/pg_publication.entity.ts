@@ -1,0 +1,29 @@
+import { ViewEntity, ViewColumn } from 'typeorm';
+
+@ViewEntity({
+  schema: 'pg_catalog',
+  name: 'pg_publication',
+  synchronize: false,
+})
+export class PgPublication {
+  @ViewColumn({ name: 'pubname' })
+  public readonly pubname!: unknown /* name */;
+
+  @ViewColumn({ name: 'pubowner' })
+  public readonly pubowner!: number /* oid */;
+
+  @ViewColumn({ name: 'puballtables' })
+  public readonly puballtables!: boolean /* bool */;
+
+  @ViewColumn({ name: 'pubinsert' })
+  public readonly pubinsert!: boolean /* bool */;
+
+  @ViewColumn({ name: 'pubupdate' })
+  public readonly pubupdate!: boolean /* bool */;
+
+  @ViewColumn({ name: 'pubdelete' })
+  public readonly pubdelete!: boolean /* bool */;
+
+  @ViewColumn({ name: 'pubtruncate' })
+  public readonly pubtruncate!: boolean /* bool */;
+}
