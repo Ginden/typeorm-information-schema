@@ -91,7 +91,7 @@ export class Attributes {
   public readonly scope_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'maximum_cardinality' })
-  public readonly maximum_cardinality!: number | null /* cardinal_number */;
+  public readonly maximum_cardinality!: null;
 
   @ViewColumn({ name: 'dtd_identifier' })
   public readonly dtd_identifier!: string | null /* sql_identifier */;

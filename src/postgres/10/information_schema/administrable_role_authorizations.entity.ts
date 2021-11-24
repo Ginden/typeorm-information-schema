@@ -13,5 +13,5 @@ export class AdministrableRoleAuthorizations {
   public readonly role_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'is_grantable' })
-  public readonly is_grantable!: ('YES' | 'NO') | null /* yes_or_no */;
+  public readonly is_grantable!: 'YES';
 }

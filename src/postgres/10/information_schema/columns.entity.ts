@@ -127,7 +127,7 @@ export class Columns {
   public readonly identity_minimum!: string | null /* character_data */;
 
   @ViewColumn({ name: 'identity_cycle' })
-  public readonly identity_cycle!: ('YES' | 'NO') | null;
+  public readonly identity_cycle!: 'YES' | 'NO' | null;
 
   @ViewColumn({ name: 'is_generated' })
   public readonly is_generated!: 'ALWAYS' | 'NEVER';

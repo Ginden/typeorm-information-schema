@@ -16,7 +16,7 @@ export class SqlParts {
   public readonly is_supported!: ('YES' | 'NO') | null /* yes_or_no */;
 
   @ViewColumn({ name: 'is_verified_by' })
-  public readonly is_verified_by!: string | null /* character_data */;
+  public readonly is_verified_by!: null;
 
   @ViewColumn({ name: 'comments' })
   public readonly comments!: string | null /* character_data */;

@@ -16,7 +16,7 @@ export class Triggers {
   public readonly trigger_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'event_manipulation' })
-  public readonly event_manipulation!: string | null /* character_data */;
+  public readonly event_manipulation!: 'INSERT' | 'UPDATE' | 'DELETE';
 
   @ViewColumn({ name: 'event_object_catalog' })
   public readonly event_object_catalog!: string | null /* sql_identifier */;
@@ -37,10 +37,10 @@ export class Triggers {
   public readonly action_statement!: string | null /* character_data */;
 
   @ViewColumn({ name: 'action_orientation' })
-  public readonly action_orientation!: string | null /* character_data */;
+  public readonly action_orientation!: 'ROW' | 'STATEMENT';
 
   @ViewColumn({ name: 'action_timing' })
-  public readonly action_timing!: string | null /* character_data */;
+  public readonly action_timing!: 'BEFORE' | 'AFTER' | 'INSTEAD OF';
 
   @ViewColumn({ name: 'action_reference_old_table' })
   public readonly action_reference_old_table!: string | null /* sql_identifier */;

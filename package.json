@@ -2,7 +2,7 @@
   "name": "typeorm-information-schema",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -10,12 +10,22 @@
     "build": "node dist/tools/generate.js",
     "postbuild": "tsc && npm run format && npm run lint"
   },
-  "keywords": [],
+  "files": [
+    "dist",
+    "!src/tools",
+    "src",
+    "!dist/tools"
+  ],
+  "keywords": [
+    "typeorm",
+    "postgres"
+  ],
   "author": "Michał Wadas <michalwadas@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
     "typeorm": "^0.2.41"
   },
+  "repository": "github:Ginden/typeorm-information-schema",
   "devDependencies": {
     "@types/lodash": "^4.14.177",
     "@types/node": "^16.11.9",

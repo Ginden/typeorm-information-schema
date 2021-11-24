@@ -25,7 +25,7 @@ export class Routines {
   public readonly routine_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'routine_type' })
-  public readonly routine_type!: string | null /* character_data */;
+  public readonly routine_type!: 'FUNCTION' | 'PROCEDURE';
 
   @ViewColumn({ name: 'module_catalog' })
   public readonly module_catalog!: string | null /* sql_identifier */;
@@ -115,7 +115,7 @@ export class Routines {
   public readonly dtd_identifier!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'routine_body' })
-  public readonly routine_body!: string | null /* character_data */;
+  public readonly routine_body!: 'SQL' | 'EXTERNAL';
 
   @ViewColumn({ name: 'routine_definition' })
   public readonly routine_definition!: string | null /* character_data */;
@@ -133,7 +133,7 @@ export class Routines {
   public readonly is_deterministic!: ('YES' | 'NO') | null /* yes_or_no */;
 
   @ViewColumn({ name: 'sql_data_access' })
-  public readonly sql_data_access!: string | null /* character_data */;
+  public readonly sql_data_access!: 'MODIFIES';
 
   @ViewColumn({ name: 'is_null_call' })
   public readonly is_null_call!: ('YES' | 'NO') | null /* yes_or_no */;
@@ -142,7 +142,7 @@ export class Routines {
   public readonly sql_path!: string | null /* character_data */;
 
   @ViewColumn({ name: 'schema_level_routine' })
-  public readonly schema_level_routine!: ('YES' | 'NO') | null /* yes_or_no */;
+  public readonly schema_level_routine!: 'YES';
 
   @ViewColumn({ name: 'max_dynamic_result_sets' })
   public readonly max_dynamic_result_sets!: number | null /* cardinal_number */;
@@ -154,7 +154,7 @@ export class Routines {
   public readonly is_implicitly_invocable!: ('YES' | 'NO') | null /* yes_or_no */;
 
   @ViewColumn({ name: 'security_type' })
-  public readonly security_type!: string | null /* character_data */;
+  public readonly security_type!: 'INVOKER' | 'DEFINER';
 
   @ViewColumn({ name: 'to_sql_specific_catalog' })
   public readonly to_sql_specific_catalog!: string | null /* sql_identifier */;
@@ -178,7 +178,7 @@ export class Routines {
   public readonly new_savepoint_level!: ('YES' | 'NO') | null /* yes_or_no */;
 
   @ViewColumn({ name: 'is_udt_dependent' })
-  public readonly is_udt_dependent!: ('YES' | 'NO') | null /* yes_or_no */;
+  public readonly is_udt_dependent!: 'NO';
 
   @ViewColumn({ name: 'result_cast_from_data_type' })
   public readonly result_cast_from_data_type!: string | null /* character_data */;

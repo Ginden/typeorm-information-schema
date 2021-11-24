@@ -49,13 +49,13 @@ export class PgStatActivity {
   public readonly state_change!: Date | null /* timestamptz */;
 
   @ViewColumn({ name: 'wait_event_type' })
-  public readonly wait_event_type!: string | null /* text */;
+  public readonly wait_event_type!: 'Activity' | 'BufferPin' | 'Client' | 'Extension' | 'IO' | 'IPC' | 'Lock' | 'LWLock' | 'Timeout' | null;
 
   @ViewColumn({ name: 'wait_event' })
   public readonly wait_event!: string | null /* text */;
 
   @ViewColumn({ name: 'state' })
-  public readonly state!: string | null /* text */;
+  public readonly state!: 'active' | 'idle' | 'idle in transaction' | 'idle in transaction' | 'fastpath function call' | 'disabled';
 
   @ViewColumn({ name: 'backend_xid' })
   public readonly backend_xid!: unknown | null /* xid */;

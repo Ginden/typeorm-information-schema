@@ -22,10 +22,10 @@ export class Sequences {
   public readonly numeric_precision!: number | null /* cardinal_number */;
 
   @ViewColumn({ name: 'numeric_precision_radix' })
-  public readonly numeric_precision_radix!: number | null /* cardinal_number */;
+  public readonly numeric_precision_radix!: 2 | 10;
 
   @ViewColumn({ name: 'numeric_scale' })
-  public readonly numeric_scale!: number | null /* cardinal_number */;
+  public readonly numeric_scale!: 2 | 10;
 
   @ViewColumn({ name: 'start_value' })
   public readonly start_value!: string | null /* character_data */;

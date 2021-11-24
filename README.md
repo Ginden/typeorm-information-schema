@@ -8,7 +8,13 @@ entities (`ViewEntity`).
 Currently only Postgres is supported, but support for other
 databases [with `information_schema`](https://www.sql-workbench.eu/dbms_comparison.html) is possible.
 
+## Why?
+
+I wanted to learn something new about Postgres internals, TypeORM internals and TypeScript. 
+
 ## Usage
+
+#### `information_schema`
 
 Let's inspect columns of `Photo`:
 
@@ -17,7 +23,6 @@ import { createConnection } from "typeorm";
 // We import from /postgres/14
 // Main module exports these under name Postgres14
 import { entities, InformationSchema } from 'typeorm-information-schema/postgres/14'
-
 
 @Entity()
 export class Photo {
@@ -34,18 +39,8 @@ export class Photo {
 }
 
 const connection = await createConnection({
-  type: "mysql",
-  host: "localhost",
-  port: 3306,
-  username: "root",
-  password: "admin",
-  database: "test",
-  entities: [
-    ...entities,
-    Photo
-  ],
-  synchronize: true,
-  logging: false
+  type: "postgres",
+  ...
 });
 
 console.log(
@@ -56,4 +51,23 @@ console.log(
     }
   })
 );
+```
+
+### `pg_catalog`
+
+```ts
+
+import { createConnection } from "typeorm";
+// We import from /postgres/14
+// Main module exports these under name Postgres14
+import { entities, PgCatalog } from 'typeorm-information-schema/postgres/14'
+
+const connection = await createConnection({
+...
+});
+
+console.log(
+  await connection.getRepository(PgCatalog.PgStatActivity).find()
+);
+
 ```

@@ -25,7 +25,7 @@ export class TableConstraints {
   public readonly table_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'constraint_type' })
-  public readonly constraint_type!: string | null /* character_data */;
+  public readonly constraint_type!: 'CHECK' | 'FOREIGN KEY' | 'PRIMARY KEY' | 'UNIQUE';
 
   @ViewColumn({ name: 'is_deferrable' })
   public readonly is_deferrable!: ('YES' | 'NO') | null /* yes_or_no */;
@@ -34,5 +34,5 @@ export class TableConstraints {
   public readonly initially_deferred!: ('YES' | 'NO') | null /* yes_or_no */;
 
   @ViewColumn({ name: 'enforced' })
-  public readonly enforced!: ('YES' | 'NO') | null /* yes_or_no */;
+  public readonly enforced!: 'YES';
 }

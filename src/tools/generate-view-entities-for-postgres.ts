@@ -5,16 +5,17 @@ import { dirname, join, normalize, relative } from 'path';
 import * as ts from 'typescript';
 import { addSyntheticLeadingComment, factory, ScriptTarget, SyntaxKind } from 'typescript';
 import { Columns as Columns10 } from '../postgres/10/information_schema/columns.entity';
-//import { Columns as Columns11 } from '../postgres/11/information_schema/columns.entity';
-//import { Columns as Columns12 } from '../postgres/12/information_schema/columns.entity';
-//import { Columns as Columns13 } from '../postgres/13/information_schema/columns.entity';
-//import { Columns as Columns14 } from '../postgres/14/information_schema/columns.entity';
+import { Columns as Columns11 } from '../postgres/11/information_schema/columns.entity';
+import { Columns as Columns12 } from '../postgres/12/information_schema/columns.entity';
+import { Columns as Columns13 } from '../postgres/13/information_schema/columns.entity';
+import { Columns as Columns14 } from '../postgres/14/information_schema/columns.entity';
 
 import { DatabaseEngine } from './generate';
+import { hardCodedComments } from './hard-coded/postgres/comments';
 
-import { hardCodedTypes, yesOrNo } from './hard-coded-types';
+import { hardCodedTypes, yesOrNo } from './hard-coded/postgres/types';
 
-export type ColumnData = Columns10;
+export type ColumnData = Columns10 | Columns11 | Columns12 | Columns13 | Columns14;
 
 export type EntityData = {
   table_schema: 'information_schema' | 'pg_catalog';
@@ -73,6 +74,7 @@ function createColumnNodes(entityData: EntityData) {
     .map((col) => {
       const columnType =
         hardCodedTypes[entityData.table_schema]?.[entityData.table_name]?.[col.column_name as string]?.() ?? getColumnType(col);
+      const jsDocComment = hardCodedComments[entityData.table_schema]?.[entityData.table_name]?.[col.column_name as string]?.();
       return factory.createPropertyDeclaration(
         [
           factory.createDecorator(

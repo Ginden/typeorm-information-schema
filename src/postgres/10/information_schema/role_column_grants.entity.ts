@@ -25,7 +25,7 @@ export class RoleColumnGrants {
   public readonly column_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'privilege_type' })
-  public readonly privilege_type!: string | null /* character_data */;
+  public readonly privilege_type!: 'SELECT' | 'INSERT' | 'UPDATE' | 'REFERENCES';
 
   @ViewColumn({ name: 'is_grantable' })
   public readonly is_grantable!: ('YES' | 'NO') | null /* yes_or_no */;

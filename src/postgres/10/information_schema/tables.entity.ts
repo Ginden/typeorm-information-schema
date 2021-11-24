@@ -16,7 +16,7 @@ export class Tables {
   public readonly table_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'table_type' })
-  public readonly table_type!: string | null /* character_data */;
+  public readonly table_type!: 'BASE TABLE' | 'VIEW' | 'FOREIGN' | 'LOCAL TEMPORARY';
 
   @ViewColumn({ name: 'self_referencing_column_name' })
   public readonly self_referencing_column_name!: string | null /* sql_identifier */;

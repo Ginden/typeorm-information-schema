@@ -22,7 +22,7 @@ export class UdtPrivileges {
   public readonly udt_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'privilege_type' })
-  public readonly privilege_type!: string | null /* character_data */;
+  public readonly privilege_type!: 'TYPE USAGE';
 
   @ViewColumn({ name: 'is_grantable' })
   public readonly is_grantable!: ('YES' | 'NO') | null /* yes_or_no */;

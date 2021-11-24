@@ -28,5 +28,5 @@ export class Transforms {
   public readonly group_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'transform_type' })
-  public readonly transform_type!: string | null /* character_data */;
+  public readonly transform_type!: 'FROM SQL' | 'TO SQL';
 }

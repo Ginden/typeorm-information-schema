@@ -28,8 +28,8 @@ export class ReferentialConstraints {
   public readonly match_option!: string | null /* character_data */;
 
   @ViewColumn({ name: 'update_rule' })
-  public readonly update_rule!: string | null /* character_data */;
+  public readonly update_rule!: 'CASCADE' | 'SET NULL' | 'SET DEFAULT' | 'RESTRICT' | 'NO ACTION';
 
   @ViewColumn({ name: 'delete_rule' })
-  public readonly delete_rule!: string | null /* character_data */;
+  public readonly delete_rule!: 'CASCADE' | 'SET NULL' | 'SET DEFAULT' | 'RESTRICT' | 'NO ACTION';
 }

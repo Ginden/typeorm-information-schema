@@ -16,7 +16,7 @@ export class DataTypePrivileges {
   public readonly object_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'object_type' })
-  public readonly object_type!: string | null /* character_data */;
+  public readonly object_type!: 'TABLE' | 'DOMAIN' | 'ROUTINE';
 
   @ViewColumn({ name: 'dtd_identifier' })
   public readonly dtd_identifier!: string | null /* sql_identifier */;
