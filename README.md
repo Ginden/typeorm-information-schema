@@ -10,7 +10,7 @@ databases [with `information_schema`](https://www.sql-workbench.eu/dbms_comparis
 
 ## Why?
 
-I wanted to learn something new about Postgres internals, TypeORM internals and TypeScript. 
+I wanted to learn something new about Postgres internals, TypeORM internals and TypeScript.
 
 ## Usage
 
@@ -63,7 +63,7 @@ import { createConnection } from "typeorm";
 import { entities, PgCatalog } from 'typeorm-information-schema/postgres/14'
 
 const connection = await createConnection({
-...
+  ...
 });
 
 console.log(
@@ -71,3 +71,31 @@ console.log(
 );
 
 ```
+
+## Playground
+
+Clone [this repository](https://github.com/Ginden/typeorm-information-schema) and run following commands (
+requires `docker-compose`) to enter REPL.
+
+Only Postgres 14 is supported right now.
+
+```bash
+npm ci
+npx tsc
+npm run playground:postgres:14
+```
+
+Then just type:
+
+```js
+await getRepository(InformationSchema.Columns).find({
+    where: {
+        table_schema: 'information_schema',
+        table_name: 'columns'
+    }
+});
+```
+
+Following global variables are registered: `connection`, `InformationSchema`, `PgCatalog`, `entities`, `getRepository`
+, `pgQuery` (bound `connection.query`), `findMetadata`.
+
