@@ -99,3 +99,7 @@ await getRepository(InformationSchema.Columns).find({
 Following global variables are registered: `connection`, `InformationSchema`, `PgCatalog`, `entities`, `getRepository`
 , `pgQuery` (bound `connection.query`), `findMetadata`.
 
+## TODO
+
+Planned:
+* Support relations between views (eg. allow `getRepository(PgCatalog.PgStatActivity).find({relations: ['locks', 'locks.relation']})` to find locked tables)
