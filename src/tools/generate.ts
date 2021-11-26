@@ -44,7 +44,9 @@ const engines: DatabaseEngine[] = [
 (async () => {
   for (const engine of engines) {
     const outputPath = join(process.cwd(), 'artifacts', `${engine.service}.json`);
-    await storeJsonForPostgres(engine, outputPath);
+    if (!process.argv.includes('--cache')) {
+      await storeJsonForPostgres(engine, outputPath);
+    }
     await generateViewEntitiesForPostgres(engine, outputPath);
   }
 })().catch((e) => {

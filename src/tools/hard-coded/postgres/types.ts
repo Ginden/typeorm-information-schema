@@ -35,6 +35,7 @@ export const hardCodedTypes: Record<string, Record<string, Record<string, () => 
       is_self_referencing: yesOrNo,
       identity_cycle: () => createTextUnion('YES', 'NO', null),
       is_generated: () => createTextUnion('ALWAYS', 'NEVER'),
+      column_name: () => factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
     },
     data_type_privileges: {
       object_type: () => createTextUnion('TABLE', 'DOMAIN', 'ROUTINE'),

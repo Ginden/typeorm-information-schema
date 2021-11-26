@@ -9,7 +9,7 @@
     "prebuild": "tsc && rimraf src/postgres",
     "build": "node dist/tools/generate.js",
     "postbuild": "tsc && npm run format && npm run lint",
-    "playground:postgres:14": "docker-compose up -d playground postgres14 && sleep 5s && docker-compose exec playground node -r './playground-env.js'"
+    "playground:postgres:14": "docker-compose up --build -d playground postgres14 && sleep 5s && docker-compose exec playground node -r './playground-env.js'"
   },
   "files": [
     "dist",
@@ -34,6 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^8.3.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "pg": "^8.7.1",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",

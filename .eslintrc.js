@@ -13,9 +13,12 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "unused-imports"
     ],
     "rules": {
-        'no-constant-condition': ['warn']
+        'no-constant-condition': ['warn'],
+        '@typescript-eslint/ban-types': ['warn'],
+        "unused-imports/no-unused-imports": "error",
     }
 };

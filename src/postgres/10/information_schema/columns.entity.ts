@@ -16,7 +16,7 @@ export class Columns {
   public readonly table_name!: string | null /* sql_identifier */;
 
   @ViewColumn({ name: 'column_name' })
-  public readonly column_name!: string | null /* sql_identifier */;
+  public readonly column_name!: string;
 
   @ViewColumn({ name: 'ordinal_position' })
   public readonly ordinal_position!: number | null /* cardinal_number */;

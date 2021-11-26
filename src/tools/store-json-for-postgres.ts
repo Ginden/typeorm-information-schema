@@ -1,6 +1,5 @@
 import { spawn } from 'child_process';
 import { writeFile } from 'fs/promises';
-import { join } from 'path';
 import { Client } from 'pg';
 import { setTimeout } from 'timers/promises';
 import { DatabaseEngine } from './generate';

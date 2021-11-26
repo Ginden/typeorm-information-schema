@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import { mkdir, readFile, writeFile } from 'fs/promises';
 import { camelCase, groupBy, sortBy, upperFirst } from 'lodash';
-import { dirname, join, normalize, relative } from 'path';
+import { dirname, join, relative } from 'path';
 import * as ts from 'typescript';
 import { addSyntheticLeadingComment, factory, ScriptTarget, SyntaxKind } from 'typescript';
 import { Columns as Columns10 } from '../postgres/10/information_schema/columns.entity';
@@ -12,8 +12,12 @@ import { Columns as Columns14 } from '../postgres/14/information_schema/columns.
 
 import { DatabaseEngine } from './generate';
 import { hardCodedComments } from './hard-coded/postgres/comments';
+import { hardCodedDecorators } from './hard-coded/postgres/enhancers';
+import { hardCodedRelations } from './hard-coded/postgres/relations';
 
 import { hardCodedTypes, yesOrNo } from './hard-coded/postgres/types';
+import { createObjectLiteral } from './typescript-utils/create-object-literal';
+import { importFrom } from './typescript-utils/import-from';
 
 export type ColumnData = Columns10 | Columns11 | Columns12 | Columns13 | Columns14;
 
@@ -70,11 +74,13 @@ function getColumnType(col: ColumnData): ts.TypeNode {
 }
 
 function createColumnNodes(entityData: EntityData) {
+  const { properties = [] } = hardCodedRelations[entityData.table_schema]?.[entityData.table_name]?.() ?? {};
   return sortBy(entityData.columns, 'ordinal_position')
     .map((col) => {
       const columnType =
         hardCodedTypes[entityData.table_schema]?.[entityData.table_name]?.[col.column_name as string]?.() ?? getColumnType(col);
       const jsDocComment = hardCodedComments[entityData.table_schema]?.[entityData.table_name]?.[col.column_name as string]?.();
+      const decorators = hardCodedDecorators[entityData.table_schema]?.[entityData.table_name]?.[col.column_name as string]?.();
       return factory.createPropertyDeclaration(
         [
           factory.createDecorator(
@@ -98,38 +104,26 @@ function createColumnNodes(entityData: EntityData) {
         undefined,
       );
     })
+    .concat(properties)
     .map((v) => addSyntheticLeadingComment(v, SyntaxKind.SingleLineCommentTrivia, 'REPLACE_WITH_NEW_LINE'));
 }
 
-function createEntityNodes(entityData: EntityData) {
+function createEntityNodes(entityData: EntityData): ts.Node[] {
+  const { imports = [] } = hardCodedRelations[entityData.table_schema]?.[entityData.table_name]?.() ?? {};
+
   return [
-    factory.createImportDeclaration(
-      undefined,
-      undefined,
-      factory.createImportClause(
-        false,
-        undefined,
-        factory.createNamedImports([
-          factory.createImportSpecifier(false, undefined, factory.createIdentifier('ViewEntity')),
-          factory.createImportSpecifier(false, undefined, factory.createIdentifier('ViewColumn')),
-        ]),
-      ),
-      factory.createStringLiteral('typeorm'),
-      undefined,
-    ),
+    importFrom('typeorm', ['ViewEntity', 'ViewColumn', 'OneToMany', 'ManyToOne', 'PrimaryColumn', 'JoinColumn']),
+    ...imports,
     addSyntheticLeadingComment(factory.createEmptyStatement(), SyntaxKind.SingleLineCommentTrivia, 'REPLACE_WITH_NEW_LINE'),
     factory.createClassDeclaration(
       [
         factory.createDecorator(
           factory.createCallExpression(factory.createIdentifier('ViewEntity'), undefined, [
-            factory.createObjectLiteralExpression(
-              [
-                factory.createPropertyAssignment(factory.createIdentifier('schema'), factory.createStringLiteral(entityData.table_schema)),
-                factory.createPropertyAssignment(factory.createIdentifier('name'), factory.createStringLiteral(entityData.table_name)),
-                factory.createPropertyAssignment(factory.createIdentifier('synchronize'), factory.createFalse()),
-              ],
-              true,
-            ),
+            createObjectLiteral({
+              schema: entityData.table_schema,
+              name: entityData.table_name,
+              synchronize: false,
+            }),
           ]),
         ),
       ],

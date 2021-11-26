@@ -9,7 +9,8 @@ const {createConnection} = require("typeorm");
         username: 'FOOBAR',
         password: 'FOOBAR',
         database: 'FOOBAR',
-        entities: [...entities]
+        entities: [...entities],
+        logging: 'all'
     });
 
 

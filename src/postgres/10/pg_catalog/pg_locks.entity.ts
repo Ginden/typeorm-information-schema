@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgDatabase } from './pg_database.entity';
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -50,4 +51,11 @@ export class PgLocks {
 
   @ViewColumn({ name: 'fastpath' })
   public readonly fastpath!: boolean | null /* bool */;
+
+  @ManyToOne(() => PgDatabase)
+  @JoinColumn({
+    name: 'database',
+    referencedColumnName: 'oid',
+  })
+  readonly pgDatabase?: PgDatabase;
 }
