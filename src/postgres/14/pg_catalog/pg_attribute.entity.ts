@@ -1,4 +1,15 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
+/**
+ *    The catalog pg_attribute stores information about
+ *    table columns.  There will be exactly one
+ *    pg_attribute row for every column in every
+ *    table in the database.  (There will also be attribute entries for
+ *    indexes, and indeed all objects that have
+ *    pg_class
+ *    entries.)
+ *    */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,80 +17,185 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgAttribute {
+  /**
+   * The table this column belongs to */
+
   @ViewColumn({ name: 'attrelid' })
   public readonly attrelid!: number /* oid */;
+  /**
+   * The column name */
 
   @ViewColumn({ name: 'attname' })
   public readonly attname!: unknown /* name */;
+  /**
+   * The data type of this column (zero for a dropped column) */
 
   @ViewColumn({ name: 'atttypid' })
   public readonly atttypid!: number /* oid */;
+  /**
+   * attstattarget controls the level of detail
+   * of statistics accumulated for this column by
+   * ANALYZE.
+   * A zero value indicates that no statistics should be collected.
+   * A negative value says to use the system default statistics target.
+   * The exact meaning of positive values is data type-dependent.
+   * For scalar data types, attstattarget
+   * is both the target number of most common values
+   * to collect, and the target number of histogram bins to create. */
 
   @ViewColumn({ name: 'attstattarget' })
   public readonly attstattarget!: number /* int4 */;
+  /**
+   * A copy of pg_type.typlen of this column's
+   * type */
 
   @ViewColumn({ name: 'attlen' })
   public readonly attlen!: number /* int2 */;
+  /**
+   * The number of the column.  Ordinary columns are numbered from 1
+   * up.  System columns, such as ctid,
+   * have (arbitrary) negative numbers. */
 
   @ViewColumn({ name: 'attnum' })
   public readonly attnum!: number /* int2 */;
+  /**
+   * Number of dimensions, if the column is an array type; otherwise 0.
+   * (Presently, the number of dimensions of an array is not enforced,
+   * so any nonzero value effectively means it's an array.) */
 
   @ViewColumn({ name: 'attndims' })
   public readonly attndims!: number /* int4 */;
+  /**
+   * Always -1 in storage, but when loaded into a row descriptor
+   * in memory this might be updated to cache the offset of the attribute
+   * within the row */
 
   @ViewColumn({ name: 'attcacheoff' })
   public readonly attcacheoff!: number /* int4 */;
+  /**
+   * atttypmod records type-specific data
+   * supplied at table creation time (for example, the maximum
+   * length of a varchar column).  It is passed to
+   * type-specific input functions and length coercion functions.
+   * The value will generally be -1 for types that do not need atttypmod. */
 
   @ViewColumn({ name: 'atttypmod' })
   public readonly atttypmod!: number /* int4 */;
+  /**
+   * A copy of pg_type.typbyval of this column's type */
 
   @ViewColumn({ name: 'attbyval' })
   public readonly attbyval!: boolean /* bool */;
+  /**
+   * A copy of pg_type.typalign of this column's type */
 
   @ViewColumn({ name: 'attalign' })
   public readonly attalign!: unknown /* char */;
+  /**
+   * Normally a copy of pg_type.typstorage of this
+   * column's type.  For TOAST-able data types, this can be altered
+   * after column creation to control storage policy. */
 
   @ViewColumn({ name: 'attstorage' })
   public readonly attstorage!: unknown /* char */;
+  /**
+   * The current compression method of the column.  Typically this is
+   * '\0' to specify use of the current default setting
+   * (see >).  Otherwise,
+   * 'p' selects pglz compression, while
+   * 'l' selects LZ4
+   * compression.  However, this field is ignored
+   * whenever attstorage does not allow
+   * compression. */
 
   @ViewColumn({ name: 'attcompression' })
   public readonly attcompression!: unknown /* char */;
+  /**
+   * This represents a not-null constraint. */
 
   @ViewColumn({ name: 'attnotnull' })
   public readonly attnotnull!: boolean /* bool */;
+  /**
+   * This column has a default expression or generation expression, in which
+   * case there will be a corresponding entry in the
+   * pg_attrdef catalog that actually defines the
+   * expression.  (Check attgenerated to
+   * determine whether this is a default or a generation expression.) */
 
   @ViewColumn({ name: 'atthasdef' })
   public readonly atthasdef!: boolean /* bool */;
+  /**
+   * This column has a value which is used where the column is entirely
+   * missing from the row, as happens when a column is added with a
+   * non-volatile DEFAULT value after the row is created.
+   * The actual value used is stored in the
+   * attmissingval column. */
 
   @ViewColumn({ name: 'atthasmissing' })
   public readonly atthasmissing!: boolean /* bool */;
+  /**
+   * If a zero byte (''), then not an identity column.
+   * Otherwise, a = generated
+   * always, d = generated by default. */
 
   @ViewColumn({ name: 'attidentity' })
   public readonly attidentity!: unknown /* char */;
+  /**
+   * This column has a default expression or generation expression, in which
+   * case there will be a corresponding entry in the
+   * pg_attrdef catalog that actually defines the
+   * expression.  (Check attgenerated to
+   * determine whether this is a default or a generation expression.) */
 
   @ViewColumn({ name: 'attgenerated' })
   public readonly attgenerated!: unknown /* char */;
+  /**
+   * This column has been dropped and is no longer valid.  A dropped
+   * column is still physically present in the table, but is
+   * ignored by the parser and so cannot be accessed via SQL. */
 
   @ViewColumn({ name: 'attisdropped' })
   public readonly attisdropped!: boolean /* bool */;
+  /**
+   * This column is defined locally in the relation.  Note that a column can
+   * be locally defined and inherited simultaneously. */
 
   @ViewColumn({ name: 'attislocal' })
   public readonly attislocal!: boolean /* bool */;
+  /**
+   * The number of direct ancestors this column has.  A column with a
+   * nonzero number of ancestors cannot be dropped nor renamed. */
 
   @ViewColumn({ name: 'attinhcount' })
   public readonly attinhcount!: number /* int4 */;
+  /**
+   * The defined collation of the column, or zero if the column is
+   * not of a collatable data type */
 
   @ViewColumn({ name: 'attcollation' })
   public readonly attcollation!: number /* oid */;
+  /**
+   * Column-level access privileges, if any have been granted specifically
+   * on this column */
 
   @ViewColumn({ name: 'attacl' })
   public readonly attacl!: unknown | null /* _aclitem */;
+  /**
+   * Attribute-level options, as keyword=value strings */
 
   @ViewColumn({ name: 'attoptions' })
   public readonly attoptions!: string | null /* _text */;
+  /**
+   * Attribute-level foreign data wrapper options, as keyword=value strings */
 
   @ViewColumn({ name: 'attfdwoptions' })
   public readonly attfdwoptions!: string | null /* _text */;
+  /**
+   * This column has a value which is used where the column is entirely
+   * missing from the row, as happens when a column is added with a
+   * non-volatile DEFAULT value after the row is created.
+   * The actual value used is stored in the
+   * attmissingval column. */
 
   @ViewColumn({ name: 'attmissingval' })
   public readonly attmissingval!: unknown | null /* anyarray */;

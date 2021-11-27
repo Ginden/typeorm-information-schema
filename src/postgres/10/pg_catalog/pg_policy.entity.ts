@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgPolicy {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'polname' })
   public readonly polname!: unknown /* name */;
 
@@ -22,7 +21,7 @@ export class PgPolicy {
   public readonly polpermissive!: boolean /* bool */;
 
   @ViewColumn({ name: 'polroles' })
-  public readonly polroles!: unknown /* _oid */;
+  public readonly polroles!: unknown | null /* _oid */;
 
   @ViewColumn({ name: 'polqual' })
   public readonly polqual!: unknown | null /* pg_node_tree */;

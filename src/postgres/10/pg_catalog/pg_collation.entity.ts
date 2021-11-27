@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgCollation {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'collname' })
   public readonly collname!: unknown /* name */;
 
@@ -20,9 +19,6 @@ export class PgCollation {
 
   @ViewColumn({ name: 'collprovider' })
   public readonly collprovider!: unknown /* char */;
-
-  @ViewColumn({ name: 'collisdeterministic' })
-  public readonly collisdeterministic!: boolean /* bool */;
 
   @ViewColumn({ name: 'collencoding' })
   public readonly collencoding!: number /* int4 */;

@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'information_schema',
@@ -32,7 +34,4 @@ export class TableConstraints {
 
   @ViewColumn({ name: 'initially_deferred' })
   public readonly initially_deferred!: ('YES' | 'NO') | null /* yes_or_no */;
-
-  @ViewColumn({ name: 'enforced' })
-  public readonly enforced!: 'YES';
 }

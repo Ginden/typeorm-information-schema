@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgProc {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'proname' })
   public readonly proname!: unknown /* name */;
 
@@ -30,11 +29,14 @@ export class PgProc {
   @ViewColumn({ name: 'provariadic' })
   public readonly provariadic!: number /* oid */;
 
-  @ViewColumn({ name: 'prosupport' })
-  public readonly prosupport!: unknown /* regproc */;
+  @ViewColumn({ name: 'protransform' })
+  public readonly protransform!: unknown /* regproc */;
 
-  @ViewColumn({ name: 'prokind' })
-  public readonly prokind!: unknown /* char */;
+  @ViewColumn({ name: 'proisagg' })
+  public readonly proisagg!: boolean /* bool */;
+
+  @ViewColumn({ name: 'proiswindow' })
+  public readonly proiswindow!: boolean /* bool */;
 
   @ViewColumn({ name: 'prosecdef' })
   public readonly prosecdef!: boolean /* bool */;

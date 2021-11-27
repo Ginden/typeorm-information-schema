@@ -1,7 +1,11 @@
-import { factory, ImportDeclaration } from 'typescript';
+import { factory, ImportDeclaration, ImportSpecifier } from 'typescript';
 
-export function importFrom(from: string, identifiers: string[]): ImportDeclaration {
-  const elements = identifiers.map((v) => factory.createImportSpecifier(false, undefined, factory.createIdentifier(v)));
+function createImportSpecifier(v: string): ImportSpecifier {
+  return factory.createImportSpecifier(false, undefined, factory.createIdentifier(v));
+}
+
+export function importFrom(from: string, identifiers: (ImportSpecifier | string)[]): ImportDeclaration {
+  const elements = identifiers.map((v) => (typeof v === 'string' ? createImportSpecifier(v) : v));
   return factory.createImportDeclaration(
     undefined,
     undefined,

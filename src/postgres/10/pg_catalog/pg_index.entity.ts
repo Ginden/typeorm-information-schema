@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -14,9 +16,6 @@ export class PgIndex {
 
   @ViewColumn({ name: 'indnatts' })
   public readonly indnatts!: number /* int2 */;
-
-  @ViewColumn({ name: 'indnkeyatts' })
-  public readonly indnkeyatts!: number /* int2 */;
 
   @ViewColumn({ name: 'indisunique' })
   public readonly indisunique!: boolean /* bool */;

@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgAttrdef {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'adrelid' })
   public readonly adrelid!: number /* oid */;
 
@@ -16,5 +15,8 @@ export class PgAttrdef {
   public readonly adnum!: number /* int2 */;
 
   @ViewColumn({ name: 'adbin' })
-  public readonly adbin!: unknown /* pg_node_tree */;
+  public readonly adbin!: unknown | null /* pg_node_tree */;
+
+  @ViewColumn({ name: 'adsrc' })
+  public readonly adsrc!: string | null /* text */;
 }

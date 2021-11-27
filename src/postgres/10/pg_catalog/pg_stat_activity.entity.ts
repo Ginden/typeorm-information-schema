@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -14,9 +16,6 @@ export class PgStatActivity {
 
   @ViewColumn({ name: 'pid' })
   public readonly pid!: number | null /* int4 */;
-
-  @ViewColumn({ name: 'leader_pid' })
-  public readonly leader_pid!: number | null /* int4 */;
 
   @ViewColumn({ name: 'usesysid' })
   public readonly usesysid!: number | null /* oid */;

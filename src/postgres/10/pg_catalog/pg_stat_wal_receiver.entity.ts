@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -18,11 +20,8 @@ export class PgStatWalReceiver {
   @ViewColumn({ name: 'receive_start_tli' })
   public readonly receive_start_tli!: number | null /* int4 */;
 
-  @ViewColumn({ name: 'written_lsn' })
-  public readonly written_lsn!: unknown | null /* pg_lsn */;
-
-  @ViewColumn({ name: 'flushed_lsn' })
-  public readonly flushed_lsn!: unknown | null /* pg_lsn */;
+  @ViewColumn({ name: 'received_lsn' })
+  public readonly received_lsn!: unknown | null /* pg_lsn */;
 
   @ViewColumn({ name: 'received_tli' })
   public readonly received_tli!: number | null /* int4 */;
@@ -41,12 +40,6 @@ export class PgStatWalReceiver {
 
   @ViewColumn({ name: 'slot_name' })
   public readonly slot_name!: string | null /* text */;
-
-  @ViewColumn({ name: 'sender_host' })
-  public readonly sender_host!: string | null /* text */;
-
-  @ViewColumn({ name: 'sender_port' })
-  public readonly sender_port!: number | null /* int4 */;
 
   @ViewColumn({ name: 'conninfo' })
   public readonly conninfo!: string | null /* text */;

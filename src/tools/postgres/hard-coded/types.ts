@@ -1,7 +1,8 @@
 import * as ts from 'typescript';
 import { factory } from 'typescript';
+import { ColumnData, EntityData } from '../generate-view-entities-for-postgres';
 
-function createTypeNode(v: null | string | number): ts.LiteralTypeNode {
+function createTypeNode(v: null | string | number | ts.TypeNode): ts.TypeNode {
   if (v === null) {
     return factory.createLiteralTypeNode(factory.createNull());
   }
@@ -11,10 +12,10 @@ function createTypeNode(v: null | string | number): ts.LiteralTypeNode {
   if (typeof v === 'number') {
     return factory.createLiteralTypeNode(factory.createNumericLiteral(v));
   }
-  throw new Error();
+  return v;
 }
 
-function createTextUnion(...texts: (string | null | number)[]): ts.UnionTypeNode {
+function createTextUnion(...texts: (string | null | number | ts.TypeNode)[]): ts.UnionTypeNode {
   return factory.createUnionTypeNode(texts.map(createTypeNode));
 }
 
@@ -89,6 +90,9 @@ export const hardCodedTypes: Record<string, Record<string, Record<string, () => 
     },
   },
   pg_catalog: {
+    pg_aggregate: {
+      aggkind: () => createTextUnion('n', 'h'),
+    },
     pg_stat_activity: {
       wait_event_type: () =>
         createTextUnion('Activity', 'BufferPin', 'Client', 'Extension', 'IO', 'IPC', 'Lock', 'LWLock', 'Timeout', null),
@@ -96,3 +100,7 @@ export const hardCodedTypes: Record<string, Record<string, Record<string, () => 
     },
   },
 };
+
+export function getTypesFor(entityData: EntityData, col: ColumnData): ts.TypeNode | null {
+  return hardCodedTypes[entityData.table_schema]?.[entityData.table_name]?.[col.column_name as string]?.();
+}

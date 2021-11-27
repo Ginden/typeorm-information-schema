@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -41,10 +43,4 @@ export class PgReplicationSlots {
 
   @ViewColumn({ name: 'confirmed_flush_lsn' })
   public readonly confirmed_flush_lsn!: unknown | null /* pg_lsn */;
-
-  @ViewColumn({ name: 'wal_status' })
-  public readonly wal_status!: string | null /* text */;
-
-  @ViewColumn({ name: 'safe_wal_size' })
-  public readonly safe_wal_size!: string | null /* int8 */;
 }

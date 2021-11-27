@@ -99,7 +99,23 @@ await getRepository(InformationSchema.Columns).find({
 Following global variables are registered: `connection`, `InformationSchema`, `PgCatalog`, `entities`, `getRepository`
 , `pgQuery` (bound `connection.query`), `findMetadata`.
 
+## Relations in PgCatalog
+
+Relations in `pg_catalog` follows following naming convention:
+
+* If relation type is many-to-one and column field ends with `id`, relation will be named without `id` (eg. `srvid` will
+  become `srv`)
+* If relation type is many-to-one and column field doesn't end with `id`, relation will be named `${fieldName}Entity` (
+  eg. `database` will become `databaseEntity`)
+* If relation type is one-to-many, name corresponding to referenced entity will be chosen
+
+## Comments
+
+Many entities in `PgCatalog` for Postgres 14 has automatically generated comments.
+
 ## TODO
 
 Planned:
-* Support relations between views (eg. allow `getRepository(PgCatalog.PgStatActivity).find({relations: ['locks', 'locks.relation']})` to find locked tables)
+
+* Support relations between views (eg.
+  allow `getRepository(PgCatalog.PgStatActivity).find({relations: ['locks', 'locks.relation']})` to find locked tables)

@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -47,9 +49,6 @@ export class PgStatAllTables {
 
   @ViewColumn({ name: 'n_mod_since_analyze' })
   public readonly n_mod_since_analyze!: string | null /* int8 */;
-
-  @ViewColumn({ name: 'n_ins_since_vacuum' })
-  public readonly n_ins_since_vacuum!: string | null /* int8 */;
 
   @ViewColumn({ name: 'last_vacuum' })
   public readonly last_vacuum!: Date | null /* timestamptz */;

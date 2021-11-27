@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgTsConfig {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'cfgname' })
   public readonly cfgname!: unknown /* name */;
 

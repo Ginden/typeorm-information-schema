@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgDefaultAcl {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'defaclrole' })
   public readonly defaclrole!: number /* oid */;
 
@@ -19,5 +18,5 @@ export class PgDefaultAcl {
   public readonly defaclobjtype!: unknown /* char */;
 
   @ViewColumn({ name: 'defaclacl' })
-  public readonly defaclacl!: unknown /* _aclitem */;
+  public readonly defaclacl!: unknown | null /* _aclitem */;
 }

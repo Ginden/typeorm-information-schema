@@ -12,7 +12,7 @@ function toExpression(v: AcceptedLiteralType): Expression {
   return v;
 }
 
-export function createObjectLiteral(v: Record<string, AcceptedLiteralType>): ObjectLiteralExpression {
+export function createObjectLiteral<T extends Record<string, AcceptedLiteralType>>(v: T): ObjectLiteralExpression {
   return factory.createObjectLiteralExpression(
     Object.entries(v).map(([key, value]) => {
       return factory.createPropertyAssignment(key, toExpression(value));

@@ -2,10 +2,13 @@ import { spawn } from 'child_process';
 import { writeFile } from 'fs/promises';
 import { Client } from 'pg';
 import { setTimeout } from 'timers/promises';
-import { DatabaseEngine } from './generate';
+import { DatabaseEngine } from '../generate';
+import { downloadPostgresDocumentation } from './download-postgres-documentation';
 
 export async function storeJsonForPostgres(engine: DatabaseEngine, outputPath: string) {
-  const dockerProcess = spawn('docker-compose', ['up', /*'--renew-anon-volumes',*/ engine.service]);
+  const dockerProcess = spawn('docker-compose', ['up', /*'--renew-anon-volumes',*/ engine.service], {
+    stdio: ['ignore', 'ignore', process.stderr],
+  });
   await setTimeout(500);
   let client: Client | null = null;
   while (true) {
@@ -35,6 +38,9 @@ export async function storeJsonForPostgres(engine: DatabaseEngine, outputPath: s
       WHERE col.table_schema IN ('information_schema', 'pg_catalog')
       GROUP BY table_schema, table_name
   `);
+  rows.forEach((v) => {
+    v.version = engine.version;
+  });
   await writeFile(outputPath, JSON.stringify(rows, null, 4));
   await new Promise((resolve) => {
     client?.end(resolve);
@@ -45,4 +51,6 @@ export async function storeJsonForPostgres(engine: DatabaseEngine, outputPath: s
     dockerProcess.on('exit', resolve);
     dockerProcess.on('close', resolve);
   });
+
+  await downloadPostgresDocumentation(engine);
 }

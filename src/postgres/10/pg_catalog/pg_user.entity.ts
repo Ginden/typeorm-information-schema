@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -28,7 +30,7 @@ export class PgUser {
   public readonly passwd!: string | null /* text */;
 
   @ViewColumn({ name: 'valuntil' })
-  public readonly valuntil!: Date | null /* timestamptz */;
+  public readonly valuntil!: unknown | null /* abstime */;
 
   @ViewColumn({ name: 'useconfig' })
   public readonly useconfig!: string | null /* _text */;

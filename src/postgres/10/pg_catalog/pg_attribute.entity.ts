@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -48,14 +50,8 @@ export class PgAttribute {
   @ViewColumn({ name: 'atthasdef' })
   public readonly atthasdef!: boolean /* bool */;
 
-  @ViewColumn({ name: 'atthasmissing' })
-  public readonly atthasmissing!: boolean /* bool */;
-
   @ViewColumn({ name: 'attidentity' })
   public readonly attidentity!: unknown /* char */;
-
-  @ViewColumn({ name: 'attgenerated' })
-  public readonly attgenerated!: unknown /* char */;
 
   @ViewColumn({ name: 'attisdropped' })
   public readonly attisdropped!: boolean /* bool */;
@@ -77,7 +73,4 @@ export class PgAttribute {
 
   @ViewColumn({ name: 'attfdwoptions' })
   public readonly attfdwoptions!: string | null /* _text */;
-
-  @ViewColumn({ name: 'attmissingval' })
-  public readonly attmissingval!: unknown | null /* anyarray */;
 }

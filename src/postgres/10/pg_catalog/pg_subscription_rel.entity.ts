@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -16,5 +18,5 @@ export class PgSubscriptionRel {
   public readonly srsubstate!: unknown /* char */;
 
   @ViewColumn({ name: 'srsublsn' })
-  public readonly srsublsn!: unknown | null /* pg_lsn */;
+  public readonly srsublsn!: unknown /* pg_lsn */;
 }

@@ -1,4 +1,14 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
+/**
+ *    The catalog pg_statistic stores
+ *    statistical data about the contents of the database.  Entries are
+ *    created by ANALYZE
+ *    and subsequently used by the query planner.  Note that all the
+ *    statistical data is inherently approximate, even assuming that it
+ *    is up-to-date.
+ *    */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,20 +16,40 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgStatistic {
+  /**
+   * The table or index that the described column belongs to */
+
   @ViewColumn({ name: 'starelid' })
   public readonly starelid!: number /* oid */;
+  /**
+   * The number of the described column */
 
   @ViewColumn({ name: 'staattnum' })
   public readonly staattnum!: number /* int2 */;
+  /**
+   * If true, the stats include inheritance child columns, not just the
+   * values in the specified relation */
 
   @ViewColumn({ name: 'stainherit' })
   public readonly stainherit!: boolean /* bool */;
+  /**
+   * The fraction of the column's entries that are null */
 
   @ViewColumn({ name: 'stanullfrac' })
   public readonly stanullfrac!: number /* float4 */;
+  /**
+   * The average stored width, in bytes, of nonnull entries */
 
   @ViewColumn({ name: 'stawidth' })
   public readonly stawidth!: number /* int4 */;
+  /**
+   * The number of distinct nonnull data values in the column.
+   * A value greater than zero is the actual number of distinct values.
+   * A value less than zero is the negative of a multiplier for the number
+   * of rows in the table; for example, a column in which about 80% of the
+   * values are nonnull and each nonnull value appears about twice on
+   * average could be represented by stadistinct = -0.4.
+   * A zero value means the number of distinct values is unknown. */
 
   @ViewColumn({ name: 'stadistinct' })
   public readonly stadistinct!: number /* float4 */;

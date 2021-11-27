@@ -1,5 +1,7 @@
 import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { PgDatabase } from './pg_database.entity';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -57,5 +59,5 @@ export class PgLocks {
     name: 'database',
     referencedColumnName: 'oid',
   })
-  readonly pgDatabase?: PgDatabase;
+  readonly databaseEntity?: PgDatabase;
 }

@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -53,21 +55,6 @@ export class PgStatistic {
 
   @ViewColumn({ name: 'staop5' })
   public readonly staop5!: number /* oid */;
-
-  @ViewColumn({ name: 'stacoll1' })
-  public readonly stacoll1!: number /* oid */;
-
-  @ViewColumn({ name: 'stacoll2' })
-  public readonly stacoll2!: number /* oid */;
-
-  @ViewColumn({ name: 'stacoll3' })
-  public readonly stacoll3!: number /* oid */;
-
-  @ViewColumn({ name: 'stacoll4' })
-  public readonly stacoll4!: number /* oid */;
-
-  @ViewColumn({ name: 'stacoll5' })
-  public readonly stacoll5!: number /* oid */;
 
   @ViewColumn({ name: 'stanumbers1' })
   public readonly stanumbers1!: number | null /* _float4 */;

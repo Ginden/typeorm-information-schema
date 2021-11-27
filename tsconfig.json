@@ -2,7 +2,7 @@
   "compilerOptions": {
       "experimentalDecorators": true,
     "target": "es2019",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "module": "commonjs",                                /* Specify what module code is generated. */
+    "module": "node12",                                /* Specify what module code is generated. */
     "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
     "declarationMap": true,                           /* Create sourcemaps for d.ts files. */
      "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
@@ -12,6 +12,6 @@
     "skipLibCheck": true     ,                            /* Skip type checking all .d.ts files. */
     "removeComments": false,
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
   }
 }

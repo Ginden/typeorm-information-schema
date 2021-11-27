@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgConstraint {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'conname' })
   public readonly conname!: unknown /* name */;
 
@@ -35,9 +34,6 @@ export class PgConstraint {
 
   @ViewColumn({ name: 'conindid' })
   public readonly conindid!: number /* oid */;
-
-  @ViewColumn({ name: 'conparentid' })
-  public readonly conparentid!: number /* oid */;
 
   @ViewColumn({ name: 'confrelid' })
   public readonly confrelid!: number /* oid */;
@@ -80,4 +76,7 @@ export class PgConstraint {
 
   @ViewColumn({ name: 'conbin' })
   public readonly conbin!: unknown | null /* pg_node_tree */;
+
+  @ViewColumn({ name: 'consrc' })
+  public readonly consrc!: string | null /* text */;
 }

@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgClass {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'relname' })
   public readonly relname!: unknown /* name */;
 
@@ -63,6 +62,12 @@ export class PgClass {
   @ViewColumn({ name: 'relchecks' })
   public readonly relchecks!: number /* int2 */;
 
+  @ViewColumn({ name: 'relhasoids' })
+  public readonly relhasoids!: boolean /* bool */;
+
+  @ViewColumn({ name: 'relhaspkey' })
+  public readonly relhaspkey!: boolean /* bool */;
+
   @ViewColumn({ name: 'relhasrules' })
   public readonly relhasrules!: boolean /* bool */;
 
@@ -86,9 +91,6 @@ export class PgClass {
 
   @ViewColumn({ name: 'relispartition' })
   public readonly relispartition!: boolean /* bool */;
-
-  @ViewColumn({ name: 'relrewrite' })
-  public readonly relrewrite!: number /* oid */;
 
   @ViewColumn({ name: 'relfrozenxid' })
   public readonly relfrozenxid!: unknown /* xid */;

@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -62,7 +64,4 @@ export class PgStatReplication {
 
   @ViewColumn({ name: 'sync_state' })
   public readonly sync_state!: string | null /* text */;
-
-  @ViewColumn({ name: 'reply_time' })
-  public readonly reply_time!: Date | null /* timestamptz */;
 }

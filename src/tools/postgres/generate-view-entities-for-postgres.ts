@@ -4,26 +4,32 @@ import { camelCase, groupBy, sortBy, upperFirst } from 'lodash';
 import { dirname, join, relative } from 'path';
 import * as ts from 'typescript';
 import { addSyntheticLeadingComment, factory, ScriptTarget, SyntaxKind } from 'typescript';
-import { Columns as Columns10 } from '../postgres/10/information_schema/columns.entity';
-import { Columns as Columns11 } from '../postgres/11/information_schema/columns.entity';
-import { Columns as Columns12 } from '../postgres/12/information_schema/columns.entity';
-import { Columns as Columns13 } from '../postgres/13/information_schema/columns.entity';
-import { Columns as Columns14 } from '../postgres/14/information_schema/columns.entity';
+// @ts-ignore
+import type { Columns as Columns10 } from '../../postgres/10/information_schema/columns.entity';
+// @ts-ignore
+import type { Columns as Columns11 } from '../../postgres/11/information_schema/columns.entity';
+// @ts-ignore
+import type { Columns as Columns12 } from '../../postgres/12/information_schema/columns.entity';
+// @ts-ignore
+import type { Columns as Columns13 } from '../../postgres/13/information_schema/columns.entity';
+// @ts-ignore
+import type { Columns as Columns14 } from '../../postgres/14/information_schema/columns.entity';
 
-import { DatabaseEngine } from './generate';
-import { hardCodedComments } from './hard-coded/postgres/comments';
-import { hardCodedDecorators } from './hard-coded/postgres/enhancers';
-import { hardCodedRelations } from './hard-coded/postgres/relations';
+import { DatabaseEngine } from '../generate';
+import { addJsdocComment } from '../typescript-utils/add-jsdoc-comment';
+import { getCommentsFor } from './comments';
+import { getRelationsFor } from './hard-coded/relations';
 
-import { hardCodedTypes, yesOrNo } from './hard-coded/postgres/types';
-import { createObjectLiteral } from './typescript-utils/create-object-literal';
-import { importFrom } from './typescript-utils/import-from';
+import { getTypesFor, yesOrNo } from './hard-coded/types';
+import { createObjectLiteral } from '../typescript-utils/create-object-literal';
+import { importFrom } from '../typescript-utils/import-from';
 
 export type ColumnData = Columns10 | Columns11 | Columns12 | Columns13 | Columns14;
 
 export type EntityData = {
   table_schema: 'information_schema' | 'pg_catalog';
   table_name: string;
+  version: number;
   columns: ColumnData[];
 };
 
@@ -74,14 +80,11 @@ function getColumnType(col: ColumnData): ts.TypeNode {
 }
 
 function createColumnNodes(entityData: EntityData) {
-  const { properties = [] } = hardCodedRelations[entityData.table_schema]?.[entityData.table_name]?.() ?? {};
-  return sortBy(entityData.columns, 'ordinal_position')
+  const { properties = [] } = getRelationsFor(entityData) ?? {};
+  return sortBy<ColumnData>(entityData.columns, 'ordinal_position')
     .map((col) => {
-      const columnType =
-        hardCodedTypes[entityData.table_schema]?.[entityData.table_name]?.[col.column_name as string]?.() ?? getColumnType(col);
-      const jsDocComment = hardCodedComments[entityData.table_schema]?.[entityData.table_name]?.[col.column_name as string]?.();
-      const decorators = hardCodedDecorators[entityData.table_schema]?.[entityData.table_name]?.[col.column_name as string]?.();
-      return factory.createPropertyDeclaration(
+      const columnType = getTypesFor(entityData, col) ?? getColumnType(col);
+      const propertyDeclaration = factory.createPropertyDeclaration(
         [
           factory.createDecorator(
             factory.createCallExpression(factory.createIdentifier('ViewColumn'), undefined, [
@@ -103,36 +106,49 @@ function createColumnNodes(entityData: EntityData) {
         columnType,
         undefined,
       );
+      const jsDocComment = getCommentsFor(entityData, col);
+      if (jsDocComment) {
+        addJsdocComment(propertyDeclaration, jsDocComment);
+      }
+      return propertyDeclaration;
     })
     .concat(properties)
     .map((v) => addSyntheticLeadingComment(v, SyntaxKind.SingleLineCommentTrivia, 'REPLACE_WITH_NEW_LINE'));
 }
 
 function createEntityNodes(entityData: EntityData): ts.Node[] {
-  const { imports = [] } = hardCodedRelations[entityData.table_schema]?.[entityData.table_name]?.() ?? {};
+  const { imports = [] } = getRelationsFor(entityData) ?? {};
+
+  const classDeclaration = factory.createClassDeclaration(
+    [
+      factory.createDecorator(
+        factory.createCallExpression(factory.createIdentifier('ViewEntity'), undefined, [
+          createObjectLiteral({
+            schema: entityData.table_schema,
+            name: entityData.table_name,
+            synchronize: false,
+          }),
+        ]),
+      ),
+    ],
+    [factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+    factory.createIdentifier(upperFirst(camelCase(entityData.table_name))),
+    undefined,
+    undefined,
+    createColumnNodes(entityData),
+  );
+
+  const jsDocComment = getCommentsFor(entityData);
+  if (jsDocComment) {
+    addJsdocComment(classDeclaration, jsDocComment);
+  }
 
   return [
     importFrom('typeorm', ['ViewEntity', 'ViewColumn', 'OneToMany', 'ManyToOne', 'PrimaryColumn', 'JoinColumn']),
     ...imports,
+    factory.createJSDocComment('Comments in this file were automatically generated from Postgres files'),
     addSyntheticLeadingComment(factory.createEmptyStatement(), SyntaxKind.SingleLineCommentTrivia, 'REPLACE_WITH_NEW_LINE'),
-    factory.createClassDeclaration(
-      [
-        factory.createDecorator(
-          factory.createCallExpression(factory.createIdentifier('ViewEntity'), undefined, [
-            createObjectLiteral({
-              schema: entityData.table_schema,
-              name: entityData.table_name,
-              synchronize: false,
-            }),
-          ]),
-        ),
-      ],
-      [factory.createModifier(ts.SyntaxKind.ExportKeyword)],
-      factory.createIdentifier(upperFirst(camelCase(entityData.table_name))),
-      undefined,
-      undefined,
-      createColumnNodes(entityData),
-    ),
+    classDeclaration,
   ];
 }
 
@@ -140,6 +156,7 @@ export async function generateViewEntitiesForPostgres(engine: DatabaseEngine, is
   const entities: EntityData[] = JSON.parse(readFileSync(isColumnsPath, 'utf8'));
   const files: string[] = [];
   const engineDir = join(process.cwd(), 'src', `${engine.outputPath}`);
+
   for (const entity of entities) {
     const outputDir = join(engineDir, entity.table_schema);
     await mkdir(outputDir, { recursive: true });

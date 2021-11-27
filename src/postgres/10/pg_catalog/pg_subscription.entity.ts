@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgSubscription {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'subdbid' })
   public readonly subdbid!: number /* oid */;
 
@@ -25,7 +24,7 @@ export class PgSubscription {
   public readonly subconninfo!: string /* text */;
 
   @ViewColumn({ name: 'subslotname' })
-  public readonly subslotname!: unknown | null /* name */;
+  public readonly subslotname!: unknown /* name */;
 
   @ViewColumn({ name: 'subsynccommit' })
   public readonly subsynccommit!: string /* text */;

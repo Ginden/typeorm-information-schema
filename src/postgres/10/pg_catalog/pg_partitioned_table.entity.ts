@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -14,9 +16,6 @@ export class PgPartitionedTable {
 
   @ViewColumn({ name: 'partnatts' })
   public readonly partnatts!: number /* int2 */;
-
-  @ViewColumn({ name: 'partdefid' })
-  public readonly partdefid!: number /* oid */;
 
   @ViewColumn({ name: 'partattrs' })
   public readonly partattrs!: unknown /* int2vector */;

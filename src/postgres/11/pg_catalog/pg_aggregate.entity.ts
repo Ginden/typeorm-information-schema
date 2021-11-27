@@ -1,4 +1,8 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgProc } from './pg_proc.entity';
+import { PgType } from './pg_type.entity';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -10,7 +14,7 @@ export class PgAggregate {
   public readonly aggfnoid!: unknown /* regproc */;
 
   @ViewColumn({ name: 'aggkind' })
-  public readonly aggkind!: unknown /* char */;
+  public readonly aggkind!: 'n' | 'h';
 
   @ViewColumn({ name: 'aggnumdirectargs' })
   public readonly aggnumdirectargs!: number /* int2 */;
@@ -71,4 +75,81 @@ export class PgAggregate {
 
   @ViewColumn({ name: 'aggminitval' })
   public readonly aggminitval!: string | null /* text */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggfnoid',
+    referencedColumnName: 'oid',
+  })
+  readonly aggfn?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggtransfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggtransfnEntity?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggfinalfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggfinalfnEntity?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggcombinefn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggcombinefnEntity?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggserialfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggserialfnEntity?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggdeserialfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggdeserialfnEntity?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggmtransfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggmtransfnEntity?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggminvtransfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggminvtransfnEntity?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggmfinalfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggmfinalfnEntity?: PgProc;
+
+  @ManyToOne(() => PgType)
+  @JoinColumn({
+    name: 'aggtranstype',
+    referencedColumnName: 'oid',
+  })
+  readonly aggtranstypeEntity?: PgType;
+
+  @ManyToOne(() => PgType)
+  @JoinColumn({
+    name: 'aggmtranstype',
+    referencedColumnName: 'oid',
+  })
+  readonly aggmtranstypeEntity?: PgType;
 }

@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -53,12 +55,6 @@ export class PgStatDatabase {
 
   @ViewColumn({ name: 'deadlocks' })
   public readonly deadlocks!: string | null /* int8 */;
-
-  @ViewColumn({ name: 'checksum_failures' })
-  public readonly checksum_failures!: string | null /* int8 */;
-
-  @ViewColumn({ name: 'checksum_last_failure' })
-  public readonly checksum_last_failure!: Date | null /* timestamptz */;
 
   @ViewColumn({ name: 'blk_read_time' })
   public readonly blk_read_time!: number | null /* float8 */;

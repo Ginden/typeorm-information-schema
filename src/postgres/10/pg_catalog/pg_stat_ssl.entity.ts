@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -24,12 +26,6 @@ export class PgStatSsl {
   @ViewColumn({ name: 'compression' })
   public readonly compression!: boolean | null /* bool */;
 
-  @ViewColumn({ name: 'client_dn' })
-  public readonly client_dn!: string | null /* text */;
-
-  @ViewColumn({ name: 'client_serial' })
-  public readonly client_serial!: unknown | null /* numeric */;
-
-  @ViewColumn({ name: 'issuer_dn' })
-  public readonly issuer_dn!: string | null /* text */;
+  @ViewColumn({ name: 'clientdn' })
+  public readonly clientdn!: string | null /* text */;
 }

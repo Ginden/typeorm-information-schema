@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgPublication {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'pubname' })
   public readonly pubname!: unknown /* name */;
 
@@ -26,10 +25,4 @@ export class PgPublication {
 
   @ViewColumn({ name: 'pubdelete' })
   public readonly pubdelete!: boolean /* bool */;
-
-  @ViewColumn({ name: 'pubtruncate' })
-  public readonly pubtruncate!: boolean /* bool */;
-
-  @ViewColumn({ name: 'pubviaroot' })
-  public readonly pubviaroot!: boolean /* bool */;
 }

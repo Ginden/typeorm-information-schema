@@ -20,5 +20,6 @@ module.exports = {
         'no-constant-condition': ['warn'],
         '@typescript-eslint/ban-types': ['warn'],
         "unused-imports/no-unused-imports": "error",
+        '@typescript-eslint/ban-ts-comment': 'off'
     }
 };

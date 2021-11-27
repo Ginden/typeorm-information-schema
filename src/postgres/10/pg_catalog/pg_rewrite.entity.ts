@@ -1,4 +1,6 @@
 import { ViewEntity, ViewColumn } from 'typeorm';
+/**
+ * Comments in this file were automatically generated from Postgres files */
 
 @ViewEntity({
   schema: 'pg_catalog',
@@ -6,9 +8,6 @@ import { ViewEntity, ViewColumn } from 'typeorm';
   synchronize: false,
 })
 export class PgRewrite {
-  @ViewColumn({ name: 'oid' })
-  public readonly oid!: number /* oid */;
-
   @ViewColumn({ name: 'rulename' })
   public readonly rulename!: unknown /* name */;
 
@@ -25,8 +24,8 @@ export class PgRewrite {
   public readonly is_instead!: boolean /* bool */;
 
   @ViewColumn({ name: 'ev_qual' })
-  public readonly ev_qual!: unknown /* pg_node_tree */;
+  public readonly ev_qual!: unknown | null /* pg_node_tree */;
 
   @ViewColumn({ name: 'ev_action' })
-  public readonly ev_action!: unknown /* pg_node_tree */;
+  public readonly ev_action!: unknown | null /* pg_node_tree */;
 }
