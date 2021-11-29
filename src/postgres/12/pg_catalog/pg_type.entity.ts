@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgProc } from './pg_proc.entity';
 /**
  * Comments in this file were automatically generated from Postgres files */
 
@@ -100,4 +101,53 @@ export class PgType {
 
   @ViewColumn({ name: 'typacl' })
   public readonly typacl!: unknown | null /* _aclitem */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'typreceive',
+    referencedColumnName: 'oid',
+  })
+  readonly typreceive_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'typinput',
+    referencedColumnName: 'oid',
+  })
+  readonly typinput_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'typoutput',
+    referencedColumnName: 'oid',
+  })
+  readonly typoutput_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'typanalyze',
+    referencedColumnName: 'oid',
+  })
+  readonly typanalyze_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'typmodin',
+    referencedColumnName: 'oid',
+  })
+  readonly typmodin_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'typsend',
+    referencedColumnName: 'oid',
+  })
+  readonly typsend_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'typmodout',
+    referencedColumnName: 'oid',
+  })
+  readonly typmodout_rel?: PgProc;
 }

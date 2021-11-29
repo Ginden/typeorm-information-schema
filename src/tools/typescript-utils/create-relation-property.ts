@@ -32,7 +32,7 @@ function createPropertyName(p: string | undefined): string {
   if (p.endsWith('id')) {
     return p.slice(0, -'id'.length);
   }
-  return `${p}Entity`;
+  return `${p}_rel`;
 }
 
 export function createManyToOne(def: ManyToOneDeclaration): ts.PropertyDeclaration {

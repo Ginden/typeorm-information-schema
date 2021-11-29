@@ -1,4 +1,4 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
 /**
  * Comments in this file were automatically generated from Postgres files */
 
@@ -91,4 +91,11 @@ export class PgProc {
 
   @ViewColumn({ name: 'proacl' })
   public readonly proacl!: unknown | null /* _aclitem */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'protransform',
+    referencedColumnName: 'oid',
+  })
+  readonly protransform_rel?: PgProc;
 }

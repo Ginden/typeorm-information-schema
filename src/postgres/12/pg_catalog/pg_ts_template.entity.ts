@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgProc } from './pg_proc.entity';
 /**
  * Comments in this file were automatically generated from Postgres files */
 
@@ -22,4 +23,18 @@ export class PgTsTemplate {
 
   @ViewColumn({ name: 'tmpllexize' })
   public readonly tmpllexize!: unknown /* regproc */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'tmplinit',
+    referencedColumnName: 'oid',
+  })
+  readonly tmplinit_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'tmpllexize',
+    referencedColumnName: 'oid',
+  })
+  readonly tmpllexize_rel?: PgProc;
 }

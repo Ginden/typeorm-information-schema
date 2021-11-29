@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgType } from './pg_type.entity';
 /**
  * Comments in this file were automatically generated from Postgres files */
 
@@ -40,4 +41,11 @@ export class PgSequences {
 
   @ViewColumn({ name: 'last_value' })
   public readonly last_value!: string | null /* int8 */;
+
+  @ManyToOne(() => PgType)
+  @JoinColumn({
+    name: 'data_type',
+    referencedColumnName: 'oid',
+  })
+  readonly data_type_rel?: PgType;
 }

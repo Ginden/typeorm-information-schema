@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgProc } from './pg_proc.entity';
 /**
  * Comments in this file were automatically generated from Postgres files */
 
@@ -25,4 +26,18 @@ export class PgRange {
 
   @ViewColumn({ name: 'rngsubdiff' })
   public readonly rngsubdiff!: unknown /* regproc */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'rngcanonical',
+    referencedColumnName: 'oid',
+  })
+  readonly rngcanonical_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'rngsubdiff',
+    referencedColumnName: 'oid',
+  })
+  readonly rngsubdiff_rel?: PgProc;
 }

@@ -105,8 +105,8 @@ Relations in `pg_catalog` follows following naming convention:
 
 * If relation type is many-to-one and column field ends with `id`, relation will be named without `id` (eg. `srvid` will
   become `srv`)
-* If relation type is many-to-one and column field doesn't end with `id`, relation will be named `${fieldName}Entity` (
-  eg. `database` will become `databaseEntity`)
+* If relation type is many-to-one and column field doesn't end with `id`, relation will be named `${fieldName}_rel` (
+  eg. `database` will become `database_rel`)
 * If relation type is one-to-many, name corresponding to referenced entity will be chosen
 
 ## Comments

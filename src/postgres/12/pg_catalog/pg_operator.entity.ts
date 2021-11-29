@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgProc } from './pg_proc.entity';
 /**
  * Comments in this file were automatically generated from Postgres files */
 
@@ -52,4 +53,25 @@ export class PgOperator {
 
   @ViewColumn({ name: 'oprjoin' })
   public readonly oprjoin!: unknown /* regproc */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'oprjoin',
+    referencedColumnName: 'oid',
+  })
+  readonly oprjoin_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'oprcode',
+    referencedColumnName: 'oid',
+  })
+  readonly oprcode_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'oprrest',
+    referencedColumnName: 'oid',
+  })
+  readonly oprrest_rel?: PgProc;
 }

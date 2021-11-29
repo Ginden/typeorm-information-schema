@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgProc } from './pg_proc.entity';
 /**
  * Comments in this file were automatically generated from Postgres files */
 /**
@@ -42,4 +43,18 @@ export class PgTransform {
 
   @ViewColumn({ name: 'trftosql' })
   public readonly trftosql!: unknown /* regproc */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'trftosql',
+    referencedColumnName: 'oid',
+  })
+  readonly trftosql_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'trffromsql',
+    referencedColumnName: 'oid',
+  })
+  readonly trffromsql_rel?: PgProc;
 }

@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgProc } from './pg_proc.entity';
 /**
  * Comments in this file were automatically generated from Postgres files */
 
@@ -31,4 +32,39 @@ export class PgTsParser {
 
   @ViewColumn({ name: 'prslextype' })
   public readonly prslextype!: unknown /* regproc */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'prsheadline',
+    referencedColumnName: 'oid',
+  })
+  readonly prsheadline_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'prstoken',
+    referencedColumnName: 'oid',
+  })
+  readonly prstoken_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'prsstart',
+    referencedColumnName: 'oid',
+  })
+  readonly prsstart_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'prslextype',
+    referencedColumnName: 'oid',
+  })
+  readonly prslextype_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'prsend',
+    referencedColumnName: 'oid',
+  })
+  readonly prsend_rel?: PgProc;
 }

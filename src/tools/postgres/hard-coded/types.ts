@@ -98,6 +98,22 @@ export const hardCodedTypes: Record<string, Record<string, Record<string, () => 
         createTextUnion('Activity', 'BufferPin', 'Client', 'Extension', 'IO', 'IPC', 'Lock', 'LWLock', 'Timeout', null),
       state: () => createTextUnion('active', 'idle', 'idle in transaction', 'idle in transaction', 'fastpath function call', 'disabled'),
     },
+    pg_am: {
+      amtype: () => createTextUnion('t', 'i')
+    },
+    pg_amop: {
+      amoppurpose: () => createTextUnion('s', 'o')
+    },
+    pg_cast: {
+      castcontext: () => createTextUnion('a', 'i'),
+      castmethod: () => createTextUnion('f', 'i', 'b')
+    },
+    pg_class: {
+      relkind: () => createTextUnion('r', 'i', 'S', 't', 'v', 'm', 'c', 'f', 'p', 'I')
+    },
+    pg_constraint: {
+      contype: () => createTextUnion('c', 'f', 'p', 'u', 't', 'x'),
+    }
   },
 };
 

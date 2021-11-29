@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgProc } from './pg_proc.entity';
 /**
  * Comments in this file were automatically generated from Postgres files */
 
@@ -19,4 +20,11 @@ export class PgAm {
 
   @ViewColumn({ name: 'amtype' })
   public readonly amtype!: unknown /* char */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'amhandler',
+    referencedColumnName: 'oid',
+  })
+  readonly amhandler_rel?: PgProc;
 }

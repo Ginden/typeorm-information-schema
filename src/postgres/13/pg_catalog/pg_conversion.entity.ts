@@ -1,4 +1,5 @@
-import { ViewEntity, ViewColumn } from 'typeorm';
+import { ViewEntity, ViewColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { PgProc } from './pg_proc.entity';
 /**
  * Comments in this file were automatically generated from Postgres files */
 
@@ -31,4 +32,11 @@ export class PgConversion {
 
   @ViewColumn({ name: 'condefault' })
   public readonly condefault!: boolean /* bool */;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'conproc',
+    referencedColumnName: 'oid',
+  })
+  readonly conproc_rel?: PgProc;
 }

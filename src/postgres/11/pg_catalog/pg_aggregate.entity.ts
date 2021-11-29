@@ -76,6 +76,69 @@ export class PgAggregate {
   @ViewColumn({ name: 'aggminitval' })
   public readonly aggminitval!: string | null /* text */;
 
+  @ManyToOne(() => PgType)
+  @JoinColumn({
+    name: 'aggtranstype',
+    referencedColumnName: 'oid',
+  })
+  readonly aggtranstype_rel?: PgType;
+
+  @ManyToOne(() => PgType)
+  @JoinColumn({
+    name: 'aggmtranstype',
+    referencedColumnName: 'oid',
+  })
+  readonly aggmtranstype_rel?: PgType;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggfinalfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggfinalfn_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggcombinefn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggcombinefn_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggserialfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggserialfn_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggdeserialfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggdeserialfn_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggmtransfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggmtransfn_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggminvtransfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggminvtransfn_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggmfinalfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggmfinalfn_rel?: PgProc;
+
   @ManyToOne(() => PgProc)
   @JoinColumn({
     name: 'aggfnoid',
@@ -88,68 +151,5 @@ export class PgAggregate {
     name: 'aggtransfn',
     referencedColumnName: 'oid',
   })
-  readonly aggtransfnEntity?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'aggfinalfn',
-    referencedColumnName: 'oid',
-  })
-  readonly aggfinalfnEntity?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'aggcombinefn',
-    referencedColumnName: 'oid',
-  })
-  readonly aggcombinefnEntity?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'aggserialfn',
-    referencedColumnName: 'oid',
-  })
-  readonly aggserialfnEntity?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'aggdeserialfn',
-    referencedColumnName: 'oid',
-  })
-  readonly aggdeserialfnEntity?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'aggmtransfn',
-    referencedColumnName: 'oid',
-  })
-  readonly aggmtransfnEntity?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'aggminvtransfn',
-    referencedColumnName: 'oid',
-  })
-  readonly aggminvtransfnEntity?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'aggmfinalfn',
-    referencedColumnName: 'oid',
-  })
-  readonly aggmfinalfnEntity?: PgProc;
-
-  @ManyToOne(() => PgType)
-  @JoinColumn({
-    name: 'aggtranstype',
-    referencedColumnName: 'oid',
-  })
-  readonly aggtranstypeEntity?: PgType;
-
-  @ManyToOne(() => PgType)
-  @JoinColumn({
-    name: 'aggmtranstype',
-    referencedColumnName: 'oid',
-  })
-  readonly aggmtranstypeEntity?: PgType;
+  readonly aggtransfn_rel?: PgProc;
 }
