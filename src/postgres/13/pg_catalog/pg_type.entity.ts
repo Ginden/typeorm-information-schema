@@ -73,10 +73,10 @@ export class PgType {
   public readonly typanalyze!: unknown /* regproc */;
 
   @ViewColumn({ name: 'typalign' })
-  public readonly typalign!: unknown /* char */;
+  public readonly typalign!: 'c' | 's' | 'i' | 'd';
 
   @ViewColumn({ name: 'typstorage' })
-  public readonly typstorage!: unknown /* char */;
+  public readonly typstorage!: 'p' | 'e' | 'm' | 'x';
 
   @ViewColumn({ name: 'typnotnull' })
   public readonly typnotnull!: boolean /* bool */;
@@ -104,27 +104,6 @@ export class PgType {
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
-    name: 'typsend',
-    referencedColumnName: 'oid',
-  })
-  readonly typsend_rel?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'typmodin',
-    referencedColumnName: 'oid',
-  })
-  readonly typmodin_rel?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'typoutput',
-    referencedColumnName: 'oid',
-  })
-  readonly typoutput_rel?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
     name: 'typreceive',
     referencedColumnName: 'oid',
   })
@@ -146,8 +125,29 @@ export class PgType {
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
+    name: 'typmodin',
+    referencedColumnName: 'oid',
+  })
+  readonly typmodin_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
     name: 'typmodout',
     referencedColumnName: 'oid',
   })
   readonly typmodout_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'typsend',
+    referencedColumnName: 'oid',
+  })
+  readonly typsend_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'typoutput',
+    referencedColumnName: 'oid',
+  })
+  readonly typoutput_rel?: PgProc;
 }

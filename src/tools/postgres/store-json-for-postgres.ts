@@ -26,7 +26,7 @@ export async function storeJsonForPostgres(engine: DatabaseEngine, outputPath: s
     } catch (e) {
       client?.end();
       console.error(e);
-      await setTimeout(500);
+      await setTimeout(2000);
     }
   }
   const { rows } = await client.query(`

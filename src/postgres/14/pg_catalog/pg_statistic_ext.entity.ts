@@ -59,7 +59,7 @@ export class PgStatisticExt {
    * mean that the first and the third table columns are covered */
 
   @ViewColumn({ name: 'stxkeys' })
-  public readonly stxkeys!: unknown /* int2vector */;
+  public readonly stxkeys!: number[] /* int2vector */;
   /**
    * An array containing codes for the enabled statistics kinds;
    * valid values are:
@@ -69,7 +69,7 @@ export class PgStatisticExt {
    * e for expression statistics */
 
   @ViewColumn({ name: 'stxkind' })
-  public readonly stxkind!: unknown /* _char */;
+  public readonly stxkind!: ('d' | 'f' | 'm' | 'e')[];
   /**
    * Expression trees (in nodeToString()
    * representation) for statistics object attributes that are not simple

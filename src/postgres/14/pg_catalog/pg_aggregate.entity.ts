@@ -106,13 +106,13 @@ export class PgAggregate {
    * w if it writes on the value */
 
   @ViewColumn({ name: 'aggfinalmodify' })
-  public readonly aggfinalmodify!: unknown /* char */;
+  public readonly aggfinalmodify!: 'r' | 's' | 'w';
   /**
    * Like aggfinalmodify, but for
    * the aggmfinalfn */
 
   @ViewColumn({ name: 'aggmfinalmodify' })
-  public readonly aggmfinalmodify!: unknown /* char */;
+  public readonly aggmfinalmodify!: 'r' | 's' | 'w';
   /**
    * Associated sort operator (zero if none) */
 

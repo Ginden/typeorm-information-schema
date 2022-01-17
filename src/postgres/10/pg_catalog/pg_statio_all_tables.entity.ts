@@ -18,26 +18,26 @@ export class PgStatioAllTables {
   public readonly relname!: unknown | null /* name */;
 
   @ViewColumn({ name: 'heap_blks_read' })
-  public readonly heap_blks_read!: string | null /* int8 */;
+  public readonly heap_blks_read!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'heap_blks_hit' })
-  public readonly heap_blks_hit!: string | null /* int8 */;
+  public readonly heap_blks_hit!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'idx_blks_read' })
-  public readonly idx_blks_read!: string | null /* int8 */;
+  public readonly idx_blks_read!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'idx_blks_hit' })
-  public readonly idx_blks_hit!: string | null /* int8 */;
+  public readonly idx_blks_hit!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'toast_blks_read' })
-  public readonly toast_blks_read!: string | null /* int8 */;
+  public readonly toast_blks_read!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'toast_blks_hit' })
-  public readonly toast_blks_hit!: string | null /* int8 */;
+  public readonly toast_blks_hit!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tidx_blks_read' })
-  public readonly tidx_blks_read!: string | null /* int8 */;
+  public readonly tidx_blks_read!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tidx_blks_hit' })
-  public readonly tidx_blks_hit!: string | null /* int8 */;
+  public readonly tidx_blks_hit!: `${number}` | null /* int8 */;
 }

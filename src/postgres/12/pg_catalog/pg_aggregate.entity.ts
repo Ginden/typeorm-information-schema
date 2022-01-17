@@ -50,10 +50,10 @@ export class PgAggregate {
   public readonly aggmfinalextra!: boolean /* bool */;
 
   @ViewColumn({ name: 'aggfinalmodify' })
-  public readonly aggfinalmodify!: unknown /* char */;
+  public readonly aggfinalmodify!: 'r' | 's' | 'w';
 
   @ViewColumn({ name: 'aggmfinalmodify' })
-  public readonly aggmfinalmodify!: unknown /* char */;
+  public readonly aggmfinalmodify!: 'r' | 's' | 'w';
 
   @ViewColumn({ name: 'aggsortop' })
   public readonly aggsortop!: number /* oid */;

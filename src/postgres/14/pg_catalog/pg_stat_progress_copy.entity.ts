@@ -27,14 +27,14 @@ export class PgStatProgressCopy {
   public readonly type!: string | null /* text */;
 
   @ViewColumn({ name: 'bytes_processed' })
-  public readonly bytes_processed!: string | null /* int8 */;
+  public readonly bytes_processed!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'bytes_total' })
-  public readonly bytes_total!: string | null /* int8 */;
+  public readonly bytes_total!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tuples_processed' })
-  public readonly tuples_processed!: string | null /* int8 */;
+  public readonly tuples_processed!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tuples_excluded' })
-  public readonly tuples_excluded!: string | null /* int8 */;
+  public readonly tuples_excluded!: `${number}` | null /* int8 */;
 }

@@ -22,7 +22,7 @@ export class PgOperator {
   public readonly oprowner!: number /* oid */;
 
   @ViewColumn({ name: 'oprkind' })
-  public readonly oprkind!: unknown /* char */;
+  public readonly oprkind!: 'b' | 'l';
 
   @ViewColumn({ name: 'oprcanmerge' })
   public readonly oprcanmerge!: boolean /* bool */;

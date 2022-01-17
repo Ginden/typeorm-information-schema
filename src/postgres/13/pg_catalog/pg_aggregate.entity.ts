@@ -50,10 +50,10 @@ export class PgAggregate {
   public readonly aggmfinalextra!: boolean /* bool */;
 
   @ViewColumn({ name: 'aggfinalmodify' })
-  public readonly aggfinalmodify!: unknown /* char */;
+  public readonly aggfinalmodify!: 'r' | 's' | 'w';
 
   @ViewColumn({ name: 'aggmfinalmodify' })
-  public readonly aggmfinalmodify!: unknown /* char */;
+  public readonly aggmfinalmodify!: 'r' | 's' | 'w';
 
   @ViewColumn({ name: 'aggsortop' })
   public readonly aggsortop!: number /* oid */;
@@ -92,10 +92,10 @@ export class PgAggregate {
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
-    name: 'aggdeserialfn',
+    name: 'aggcombinefn',
     referencedColumnName: 'oid',
   })
-  readonly aggdeserialfn_rel?: PgProc;
+  readonly aggcombinefn_rel?: PgProc;
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
@@ -103,20 +103,6 @@ export class PgAggregate {
     referencedColumnName: 'oid',
   })
   readonly aggfn?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'aggtransfn',
-    referencedColumnName: 'oid',
-  })
-  readonly aggtransfn_rel?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'aggmtransfn',
-    referencedColumnName: 'oid',
-  })
-  readonly aggmtransfn_rel?: PgProc;
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
@@ -141,6 +127,20 @@ export class PgAggregate {
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
+    name: 'aggdeserialfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggdeserialfn_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'aggtransfn',
+    referencedColumnName: 'oid',
+  })
+  readonly aggtransfn_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
     name: 'aggserialfn',
     referencedColumnName: 'oid',
   })
@@ -148,8 +148,8 @@ export class PgAggregate {
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
-    name: 'aggcombinefn',
+    name: 'aggmtransfn',
     referencedColumnName: 'oid',
   })
-  readonly aggcombinefn_rel?: PgProc;
+  readonly aggmtransfn_rel?: PgProc;
 }

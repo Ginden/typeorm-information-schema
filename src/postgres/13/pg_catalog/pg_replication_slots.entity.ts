@@ -48,5 +48,5 @@ export class PgReplicationSlots {
   public readonly wal_status!: string | null /* text */;
 
   @ViewColumn({ name: 'safe_wal_size' })
-  public readonly safe_wal_size!: string | null /* int8 */;
+  public readonly safe_wal_size!: `${number}` | null /* int8 */;
 }

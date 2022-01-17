@@ -30,17 +30,17 @@ export class PgStatProgressCluster {
   public readonly cluster_index_relid!: number | null /* oid */;
 
   @ViewColumn({ name: 'heap_tuples_scanned' })
-  public readonly heap_tuples_scanned!: string | null /* int8 */;
+  public readonly heap_tuples_scanned!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'heap_tuples_written' })
-  public readonly heap_tuples_written!: string | null /* int8 */;
+  public readonly heap_tuples_written!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'heap_blks_total' })
-  public readonly heap_blks_total!: string | null /* int8 */;
+  public readonly heap_blks_total!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'heap_blks_scanned' })
-  public readonly heap_blks_scanned!: string | null /* int8 */;
+  public readonly heap_blks_scanned!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'index_rebuild_count' })
-  public readonly index_rebuild_count!: string | null /* int8 */;
+  public readonly index_rebuild_count!: `${number}` | null /* int8 */;
 }

@@ -15,19 +15,19 @@ export class PgSequence {
   public readonly seqtypid!: number /* oid */;
 
   @ViewColumn({ name: 'seqstart' })
-  public readonly seqstart!: string /* int8 */;
+  public readonly seqstart!: `${number}` /* int8 */;
 
   @ViewColumn({ name: 'seqincrement' })
-  public readonly seqincrement!: string /* int8 */;
+  public readonly seqincrement!: `${number}` /* int8 */;
 
   @ViewColumn({ name: 'seqmax' })
-  public readonly seqmax!: string /* int8 */;
+  public readonly seqmax!: `${number}` /* int8 */;
 
   @ViewColumn({ name: 'seqmin' })
-  public readonly seqmin!: string /* int8 */;
+  public readonly seqmin!: `${number}` /* int8 */;
 
   @ViewColumn({ name: 'seqcache' })
-  public readonly seqcache!: string /* int8 */;
+  public readonly seqcache!: `${number}` /* int8 */;
 
   @ViewColumn({ name: 'seqcycle' })
   public readonly seqcycle!: boolean /* bool */;

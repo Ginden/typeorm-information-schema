@@ -38,7 +38,10 @@ function mapPostgresTypesToNodes(col: ColumnData): ts.TypeNode | null {
     case 'sql_identifier':
       return factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword);
     case 'oid':
+    case '_oid':
       return factory.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword);
+    case 'oidvector':
+      return factory.createArrayTypeNode(factory.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword));
     case 'yes_or_no':
       return yesOrNo();
   }
@@ -50,16 +53,27 @@ function mapPostgresTypesToNodes(col: ColumnData): ts.TypeNode | null {
     case '_float4':
     case 'float8':
     case 'int2':
+    case '_int2':
     case 'int4':
     case 'oid':
+    case '_oid':
       return factory.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword);
+    case 'int2vector':
+    case 'oidvector':
+      return factory.createArrayTypeNode(factory.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword));
+    case 'int8':
+      return factory.createTemplateLiteralType(factory.createTemplateHead('', ''), [
+        factory.createTemplateLiteralTypeSpan(
+          factory.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword),
+          factory.createTemplateTail('', ''),
+        ),
+      ]);
     case 'text':
     case 'varchar':
-    case 'int8':
     case '_text':
       return factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword);
     case 'timestamptz':
-      return factory.createTypeReferenceNode(factory.createIdentifier('Date'), undefined);
+      return factory.createTypeReferenceNode(factory.createIdentifier('Date'));
   }
   return null;
 }

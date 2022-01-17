@@ -141,7 +141,7 @@ export class PgClass {
    * I = partitioned index */
 
   @ViewColumn({ name: 'relkind' })
-  public readonly relkind!: unknown /* char */;
+  public readonly relkind!: 'r' | 'i' | 'S' | 't' | 'v' | 'm' | 'c' | 'f' | 'p' | 'I';
   /**
    * Number of user columns in the relation (system columns not
    * counted).  There must be this many corresponding entries in

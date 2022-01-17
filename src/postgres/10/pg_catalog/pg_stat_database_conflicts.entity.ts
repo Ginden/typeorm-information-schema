@@ -15,17 +15,17 @@ export class PgStatDatabaseConflicts {
   public readonly datname!: unknown | null /* name */;
 
   @ViewColumn({ name: 'confl_tablespace' })
-  public readonly confl_tablespace!: string | null /* int8 */;
+  public readonly confl_tablespace!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'confl_lock' })
-  public readonly confl_lock!: string | null /* int8 */;
+  public readonly confl_lock!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'confl_snapshot' })
-  public readonly confl_snapshot!: string | null /* int8 */;
+  public readonly confl_snapshot!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'confl_bufferpin' })
-  public readonly confl_bufferpin!: string | null /* int8 */;
+  public readonly confl_bufferpin!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'confl_deadlock' })
-  public readonly confl_deadlock!: string | null /* int8 */;
+  public readonly confl_deadlock!: `${number}` | null /* int8 */;
 }

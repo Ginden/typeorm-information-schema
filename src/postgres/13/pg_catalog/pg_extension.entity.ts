@@ -27,7 +27,7 @@ export class PgExtension {
   public readonly extversion!: string /* text */;
 
   @ViewColumn({ name: 'extconfig' })
-  public readonly extconfig!: unknown | null /* _oid */;
+  public readonly extconfig!: number | null /* _oid */;
 
   @ViewColumn({ name: 'extcondition' })
   public readonly extcondition!: string | null /* _text */;

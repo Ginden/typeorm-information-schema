@@ -51,16 +51,16 @@ export class PgIndex {
   public readonly indisreplident!: boolean /* bool */;
 
   @ViewColumn({ name: 'indkey' })
-  public readonly indkey!: unknown /* int2vector */;
+  public readonly indkey!: number[] /* int2vector */;
 
   @ViewColumn({ name: 'indcollation' })
-  public readonly indcollation!: unknown /* oidvector */;
+  public readonly indcollation!: number[] /* oidvector */;
 
   @ViewColumn({ name: 'indclass' })
-  public readonly indclass!: unknown /* oidvector */;
+  public readonly indclass!: number[] /* oidvector */;
 
   @ViewColumn({ name: 'indoption' })
-  public readonly indoption!: unknown /* int2vector */;
+  public readonly indoption!: number[] /* int2vector */;
 
   @ViewColumn({ name: 'indexprs' })
   public readonly indexprs!: unknown | null /* pg_node_tree */;

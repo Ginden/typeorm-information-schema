@@ -49,7 +49,7 @@ export class PgAmop {
    * o for ordering */
 
   @ViewColumn({ name: 'amoppurpose' })
-  public readonly amoppurpose!: unknown /* char */;
+  public readonly amoppurpose!: 's' | 'o';
   /**
    * OID of the operator */
 

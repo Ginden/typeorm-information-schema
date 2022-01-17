@@ -18,7 +18,7 @@ export class PgStatXactUserFunctions {
   public readonly funcname!: unknown | null /* name */;
 
   @ViewColumn({ name: 'calls' })
-  public readonly calls!: string | null /* int8 */;
+  public readonly calls!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'total_time' })
   public readonly total_time!: number | null /* float8 */;

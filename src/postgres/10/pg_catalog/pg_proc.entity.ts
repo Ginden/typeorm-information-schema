@@ -51,10 +51,10 @@ export class PgProc {
   public readonly proretset!: boolean /* bool */;
 
   @ViewColumn({ name: 'provolatile' })
-  public readonly provolatile!: unknown /* char */;
+  public readonly provolatile!: 'i' | 's' | 'v';
 
   @ViewColumn({ name: 'proparallel' })
-  public readonly proparallel!: unknown /* char */;
+  public readonly proparallel!: 's' | 'r' | 'u';
 
   @ViewColumn({ name: 'pronargs' })
   public readonly pronargs!: number /* int2 */;
@@ -66,10 +66,10 @@ export class PgProc {
   public readonly prorettype!: number /* oid */;
 
   @ViewColumn({ name: 'proargtypes' })
-  public readonly proargtypes!: unknown /* oidvector */;
+  public readonly proargtypes!: number[] /* oidvector */;
 
   @ViewColumn({ name: 'proallargtypes' })
-  public readonly proallargtypes!: unknown | null /* _oid */;
+  public readonly proallargtypes!: number | null /* _oid */;
 
   @ViewColumn({ name: 'proargmodes' })
   public readonly proargmodes!: unknown | null /* _char */;
@@ -81,7 +81,7 @@ export class PgProc {
   public readonly proargdefaults!: unknown | null /* pg_node_tree */;
 
   @ViewColumn({ name: 'protrftypes' })
-  public readonly protrftypes!: unknown | null /* _oid */;
+  public readonly protrftypes!: number | null /* _oid */;
 
   @ViewColumn({ name: 'prosrc' })
   public readonly prosrc!: string /* text */;

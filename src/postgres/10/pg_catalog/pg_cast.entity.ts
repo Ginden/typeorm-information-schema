@@ -18,8 +18,8 @@ export class PgCast {
   public readonly castfunc!: number /* oid */;
 
   @ViewColumn({ name: 'castcontext' })
-  public readonly castcontext!: unknown /* char */;
+  public readonly castcontext!: 'a' | 'i';
 
   @ViewColumn({ name: 'castmethod' })
-  public readonly castmethod!: unknown /* char */;
+  public readonly castmethod!: 'f' | 'i' | 'b';
 }

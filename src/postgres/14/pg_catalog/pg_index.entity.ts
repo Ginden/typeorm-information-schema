@@ -111,7 +111,7 @@ export class PgIndex {
    * rather than a simple column reference. */
 
   @ViewColumn({ name: 'indkey' })
-  public readonly indkey!: unknown /* int2vector */;
+  public readonly indkey!: number[] /* int2vector */;
   /**
    * For each column in the index key
    * (indnkeyatts values), this contains the OID
@@ -119,7 +119,7 @@ export class PgIndex {
    * a collatable data type. */
 
   @ViewColumn({ name: 'indcollation' })
-  public readonly indcollation!: unknown /* oidvector */;
+  public readonly indcollation!: number[] /* oidvector */;
   /**
    * For each column in the index key
    * (indnkeyatts values), this contains the OID
@@ -127,14 +127,14 @@ export class PgIndex {
    * pg_opclass for details. */
 
   @ViewColumn({ name: 'indclass' })
-  public readonly indclass!: unknown /* oidvector */;
+  public readonly indclass!: number[] /* oidvector */;
   /**
    * This is an array of indnkeyatts values that
    * store per-column flag bits.  The meaning of the bits is defined by
    * the index's access method. */
 
   @ViewColumn({ name: 'indoption' })
-  public readonly indoption!: unknown /* int2vector */;
+  public readonly indoption!: number[] /* int2vector */;
   /**
    * Expression trees (in nodeToString()
    * representation) for index attributes that are not simple column

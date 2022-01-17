@@ -15,7 +15,7 @@ export class PgDefaultAcl {
   public readonly defaclnamespace!: number /* oid */;
 
   @ViewColumn({ name: 'defaclobjtype' })
-  public readonly defaclobjtype!: unknown /* char */;
+  public readonly defaclobjtype!: 'r' | 'S' | 'f' | 'T' | 'n';
 
   @ViewColumn({ name: 'defaclacl' })
   public readonly defaclacl!: unknown | null /* _aclitem */;

@@ -55,7 +55,7 @@ export class PgTrigger {
    * A = trigger fires always. */
 
   @ViewColumn({ name: 'tgenabled' })
-  public readonly tgenabled!: unknown /* char */;
+  public readonly tgenabled!: 'O' | 'D' | 'R' | 'A';
   /**
    * True if trigger is internally generated (usually, to enforce
    * the constraint identified by tgconstraint) */
@@ -101,7 +101,7 @@ export class PgTrigger {
    * empty array */
 
   @ViewColumn({ name: 'tgattr' })
-  public readonly tgattr!: unknown /* int2vector */;
+  public readonly tgattr!: number[] /* int2vector */;
   /**
    * Argument strings to pass to trigger, each NULL-terminated */
 

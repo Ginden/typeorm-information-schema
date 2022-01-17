@@ -27,5 +27,5 @@ export class PgDepend {
   public readonly refobjsubid!: number /* int4 */;
 
   @ViewColumn({ name: 'deptype' })
-  public readonly deptype!: unknown /* char */;
+  public readonly deptype!: 'n' | 'a' | 'i' | 'P' | 'S' | 'e' | 'x' | 'p';
 }

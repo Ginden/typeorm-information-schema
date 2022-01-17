@@ -54,10 +54,10 @@ export class PgAttribute {
   public readonly atthasmissing!: boolean /* bool */;
 
   @ViewColumn({ name: 'attidentity' })
-  public readonly attidentity!: unknown /* char */;
+  public readonly attidentity!: '' | 'a' | 'd';
 
   @ViewColumn({ name: 'attgenerated' })
-  public readonly attgenerated!: unknown /* char */;
+  public readonly attgenerated!: 's' | '';
 
   @ViewColumn({ name: 'attisdropped' })
   public readonly attisdropped!: boolean /* bool */;

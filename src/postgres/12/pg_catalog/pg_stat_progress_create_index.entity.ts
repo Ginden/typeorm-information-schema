@@ -30,29 +30,29 @@ export class PgStatProgressCreateIndex {
   public readonly phase!: string | null /* text */;
 
   @ViewColumn({ name: 'lockers_total' })
-  public readonly lockers_total!: string | null /* int8 */;
+  public readonly lockers_total!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'lockers_done' })
-  public readonly lockers_done!: string | null /* int8 */;
+  public readonly lockers_done!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'current_locker_pid' })
-  public readonly current_locker_pid!: string | null /* int8 */;
+  public readonly current_locker_pid!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'blocks_total' })
-  public readonly blocks_total!: string | null /* int8 */;
+  public readonly blocks_total!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'blocks_done' })
-  public readonly blocks_done!: string | null /* int8 */;
+  public readonly blocks_done!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tuples_total' })
-  public readonly tuples_total!: string | null /* int8 */;
+  public readonly tuples_total!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tuples_done' })
-  public readonly tuples_done!: string | null /* int8 */;
+  public readonly tuples_done!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'partitions_total' })
-  public readonly partitions_total!: string | null /* int8 */;
+  public readonly partitions_total!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'partitions_done' })
-  public readonly partitions_done!: string | null /* int8 */;
+  public readonly partitions_done!: `${number}` | null /* int8 */;
 }

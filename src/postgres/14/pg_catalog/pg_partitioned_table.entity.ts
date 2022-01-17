@@ -22,7 +22,7 @@ export class PgPartitionedTable {
    * l = list partitioned table, r = range partitioned table */
 
   @ViewColumn({ name: 'partstrat' })
-  public readonly partstrat!: unknown /* char */;
+  public readonly partstrat!: 'h' | 'l' | 'r';
   /**
    * The number of columns in the partition key */
 
@@ -44,21 +44,21 @@ export class PgPartitionedTable {
    * expression, rather than a simple column reference. */
 
   @ViewColumn({ name: 'partattrs' })
-  public readonly partattrs!: unknown /* int2vector */;
+  public readonly partattrs!: number[] /* int2vector */;
   /**
    * For each column in the partition key, this contains the OID of the
    * operator class to use.  See
    * pg_opclass for details. */
 
   @ViewColumn({ name: 'partclass' })
-  public readonly partclass!: unknown /* oidvector */;
+  public readonly partclass!: number[] /* oidvector */;
   /**
    * For each column in the partition key, this contains the OID of the
    * collation to use for partitioning, or zero if the column is not
    * of a collatable data type. */
 
   @ViewColumn({ name: 'partcollation' })
-  public readonly partcollation!: unknown /* oidvector */;
+  public readonly partcollation!: number[] /* oidvector */;
   /**
    * Expression trees (in nodeToString()
    * representation) for partition key columns that are not simple column

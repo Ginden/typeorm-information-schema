@@ -27,8 +27,8 @@ export class PgStatisticExt {
   public readonly stxstattarget!: number /* int4 */;
 
   @ViewColumn({ name: 'stxkeys' })
-  public readonly stxkeys!: unknown /* int2vector */;
+  public readonly stxkeys!: number[] /* int2vector */;
 
   @ViewColumn({ name: 'stxkind' })
-  public readonly stxkind!: unknown /* _char */;
+  public readonly stxkind!: ('d' | 'f' | 'm' | 'e')[];
 }

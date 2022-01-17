@@ -27,12 +27,12 @@ export class PgShmemAllocations {
    * allocations, since details related to them are not known. */
 
   @ViewColumn({ name: 'off' })
-  public readonly off!: string | null /* int8 */;
+  public readonly off!: `${number}` | null /* int8 */;
   /**
    * Size of the allocation */
 
   @ViewColumn({ name: 'size' })
-  public readonly size!: string | null /* int8 */;
+  public readonly size!: `${number}` | null /* int8 */;
   /**
    * Size of the allocation including padding. For anonymous
    * allocations, no information about padding is available, so the
@@ -41,5 +41,5 @@ export class PgShmemAllocations {
    * the columns will be equal in that case also. */
 
   @ViewColumn({ name: 'allocated_size' })
-  public readonly allocated_size!: string | null /* int8 */;
+  public readonly allocated_size!: `${number}` | null /* int8 */;
 }

@@ -66,7 +66,7 @@ export class PgStatActivity {
   public readonly backend_xmin!: unknown | null /* xid */;
 
   @ViewColumn({ name: 'query_id' })
-  public readonly query_id!: string | null /* int8 */;
+  public readonly query_id!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'query' })
   public readonly query!: string | null /* text */;

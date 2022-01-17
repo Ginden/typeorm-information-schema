@@ -18,13 +18,13 @@ export class PgPolicy {
   public readonly polrelid!: number /* oid */;
 
   @ViewColumn({ name: 'polcmd' })
-  public readonly polcmd!: unknown /* char */;
+  public readonly polcmd!: 'r' | 'a' | 'w' | 'd' | '*';
 
   @ViewColumn({ name: 'polpermissive' })
   public readonly polpermissive!: boolean /* bool */;
 
   @ViewColumn({ name: 'polroles' })
-  public readonly polroles!: unknown /* _oid */;
+  public readonly polroles!: number /* _oid */;
 
   @ViewColumn({ name: 'polqual' })
   public readonly polqual!: unknown | null /* pg_node_tree */;

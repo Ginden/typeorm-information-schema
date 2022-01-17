@@ -18,7 +18,7 @@ export class PgInitPrivs {
   public readonly objsubid!: number /* int4 */;
 
   @ViewColumn({ name: 'privtype' })
-  public readonly privtype!: unknown /* char */;
+  public readonly privtype!: 'i' | 'e';
 
   @ViewColumn({ name: 'initprivs' })
   public readonly initprivs!: unknown /* _aclitem */;

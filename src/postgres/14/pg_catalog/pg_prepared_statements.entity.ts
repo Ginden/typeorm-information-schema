@@ -54,10 +54,10 @@ export class PgPreparedStatements {
    * Number of times generic plan was chosen */
 
   @ViewColumn({ name: 'generic_plans' })
-  public readonly generic_plans!: string | null /* int8 */;
+  public readonly generic_plans!: `${number}` | null /* int8 */;
   /**
    * Number of times custom plan was chosen */
 
   @ViewColumn({ name: 'custom_plans' })
-  public readonly custom_plans!: string | null /* int8 */;
+  public readonly custom_plans!: `${number}` | null /* int8 */;
 }

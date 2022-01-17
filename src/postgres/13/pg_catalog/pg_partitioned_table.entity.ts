@@ -12,7 +12,7 @@ export class PgPartitionedTable {
   public readonly partrelid!: number /* oid */;
 
   @ViewColumn({ name: 'partstrat' })
-  public readonly partstrat!: unknown /* char */;
+  public readonly partstrat!: 'h' | 'l' | 'r';
 
   @ViewColumn({ name: 'partnatts' })
   public readonly partnatts!: number /* int2 */;
@@ -21,13 +21,13 @@ export class PgPartitionedTable {
   public readonly partdefid!: number /* oid */;
 
   @ViewColumn({ name: 'partattrs' })
-  public readonly partattrs!: unknown /* int2vector */;
+  public readonly partattrs!: number[] /* int2vector */;
 
   @ViewColumn({ name: 'partclass' })
-  public readonly partclass!: unknown /* oidvector */;
+  public readonly partclass!: number[] /* oidvector */;
 
   @ViewColumn({ name: 'partcollation' })
-  public readonly partcollation!: unknown /* oidvector */;
+  public readonly partcollation!: number[] /* oidvector */;
 
   @ViewColumn({ name: 'partexprs' })
   public readonly partexprs!: unknown | null /* pg_node_tree */;

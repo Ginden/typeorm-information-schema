@@ -15,7 +15,7 @@ export class PgConstraint {
   public readonly connamespace!: number /* oid */;
 
   @ViewColumn({ name: 'contype' })
-  public readonly contype!: unknown /* char */;
+  public readonly contype!: 'c' | 'f' | 'p' | 'u' | 't' | 'x';
 
   @ViewColumn({ name: 'condeferrable' })
   public readonly condeferrable!: boolean /* bool */;
@@ -42,13 +42,13 @@ export class PgConstraint {
   public readonly confrelid!: number /* oid */;
 
   @ViewColumn({ name: 'confupdtype' })
-  public readonly confupdtype!: unknown /* char */;
+  public readonly confupdtype!: 'a' | 'r' | 'c' | 'n' | 'd';
 
   @ViewColumn({ name: 'confdeltype' })
-  public readonly confdeltype!: unknown /* char */;
+  public readonly confdeltype!: 'a' | 'r' | 'c' | 'n' | 'd';
 
   @ViewColumn({ name: 'confmatchtype' })
-  public readonly confmatchtype!: unknown /* char */;
+  public readonly confmatchtype!: 'f' | 'p' | 's';
 
   @ViewColumn({ name: 'conislocal' })
   public readonly conislocal!: boolean /* bool */;
@@ -60,22 +60,22 @@ export class PgConstraint {
   public readonly connoinherit!: boolean /* bool */;
 
   @ViewColumn({ name: 'conkey' })
-  public readonly conkey!: unknown | null /* _int2 */;
+  public readonly conkey!: number | null /* _int2 */;
 
   @ViewColumn({ name: 'confkey' })
-  public readonly confkey!: unknown | null /* _int2 */;
+  public readonly confkey!: number | null /* _int2 */;
 
   @ViewColumn({ name: 'conpfeqop' })
-  public readonly conpfeqop!: unknown | null /* _oid */;
+  public readonly conpfeqop!: number | null /* _oid */;
 
   @ViewColumn({ name: 'conppeqop' })
-  public readonly conppeqop!: unknown | null /* _oid */;
+  public readonly conppeqop!: number | null /* _oid */;
 
   @ViewColumn({ name: 'conffeqop' })
-  public readonly conffeqop!: unknown | null /* _oid */;
+  public readonly conffeqop!: number | null /* _oid */;
 
   @ViewColumn({ name: 'conexclop' })
-  public readonly conexclop!: unknown | null /* _oid */;
+  public readonly conexclop!: number | null /* _oid */;
 
   @ViewColumn({ name: 'conbin' })
   public readonly conbin!: unknown | null /* pg_node_tree */;

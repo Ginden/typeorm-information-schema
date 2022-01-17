@@ -12,28 +12,28 @@ export class PgStatReplicationSlots {
   public readonly slot_name!: string | null /* text */;
 
   @ViewColumn({ name: 'spill_txns' })
-  public readonly spill_txns!: string | null /* int8 */;
+  public readonly spill_txns!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'spill_count' })
-  public readonly spill_count!: string | null /* int8 */;
+  public readonly spill_count!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'spill_bytes' })
-  public readonly spill_bytes!: string | null /* int8 */;
+  public readonly spill_bytes!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'stream_txns' })
-  public readonly stream_txns!: string | null /* int8 */;
+  public readonly stream_txns!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'stream_count' })
-  public readonly stream_count!: string | null /* int8 */;
+  public readonly stream_count!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'stream_bytes' })
-  public readonly stream_bytes!: string | null /* int8 */;
+  public readonly stream_bytes!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'total_txns' })
-  public readonly total_txns!: string | null /* int8 */;
+  public readonly total_txns!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'total_bytes' })
-  public readonly total_bytes!: string | null /* int8 */;
+  public readonly total_bytes!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'stats_reset' })
   public readonly stats_reset!: Date | null /* timestamptz */;

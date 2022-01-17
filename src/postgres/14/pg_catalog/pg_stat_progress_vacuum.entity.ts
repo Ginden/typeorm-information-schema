@@ -24,20 +24,20 @@ export class PgStatProgressVacuum {
   public readonly phase!: string | null /* text */;
 
   @ViewColumn({ name: 'heap_blks_total' })
-  public readonly heap_blks_total!: string | null /* int8 */;
+  public readonly heap_blks_total!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'heap_blks_scanned' })
-  public readonly heap_blks_scanned!: string | null /* int8 */;
+  public readonly heap_blks_scanned!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'heap_blks_vacuumed' })
-  public readonly heap_blks_vacuumed!: string | null /* int8 */;
+  public readonly heap_blks_vacuumed!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'index_vacuum_count' })
-  public readonly index_vacuum_count!: string | null /* int8 */;
+  public readonly index_vacuum_count!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'max_dead_tuples' })
-  public readonly max_dead_tuples!: string | null /* int8 */;
+  public readonly max_dead_tuples!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'num_dead_tuples' })
-  public readonly num_dead_tuples!: string | null /* int8 */;
+  public readonly num_dead_tuples!: `${number}` | null /* int8 */;
 }

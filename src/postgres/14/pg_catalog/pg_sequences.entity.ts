@@ -37,22 +37,22 @@ export class PgSequences {
    * Start value of the sequence */
 
   @ViewColumn({ name: 'start_value' })
-  public readonly start_value!: string | null /* int8 */;
+  public readonly start_value!: `${number}` | null /* int8 */;
   /**
    * Minimum value of the sequence */
 
   @ViewColumn({ name: 'min_value' })
-  public readonly min_value!: string | null /* int8 */;
+  public readonly min_value!: `${number}` | null /* int8 */;
   /**
    * Maximum value of the sequence */
 
   @ViewColumn({ name: 'max_value' })
-  public readonly max_value!: string | null /* int8 */;
+  public readonly max_value!: `${number}` | null /* int8 */;
   /**
    * Increment value of the sequence */
 
   @ViewColumn({ name: 'increment_by' })
-  public readonly increment_by!: string | null /* int8 */;
+  public readonly increment_by!: `${number}` | null /* int8 */;
   /**
    * Whether the sequence cycles */
 
@@ -62,7 +62,7 @@ export class PgSequences {
    * Cache size of the sequence */
 
   @ViewColumn({ name: 'cache_size' })
-  public readonly cache_size!: string | null /* int8 */;
+  public readonly cache_size!: `${number}` | null /* int8 */;
   /**
    * The last sequence value written to disk.  If caching is used,
    * this value can be greater than the last value handed out from the
@@ -72,7 +72,7 @@ export class PgSequences {
    * null. */
 
   @ViewColumn({ name: 'last_value' })
-  public readonly last_value!: string | null /* int8 */;
+  public readonly last_value!: `${number}` | null /* int8 */;
 
   @ManyToOne(() => PgType)
   @JoinColumn({

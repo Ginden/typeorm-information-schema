@@ -69,7 +69,7 @@ export class PgProc {
    * w for a window function */
 
   @ViewColumn({ name: 'prokind' })
-  public readonly prokind!: unknown /* char */;
+  public readonly prokind!: 'f' | 'p' | 'a' | 'w';
   /**
    * Function is a security definer (i.e., a setuid
    * function) */
@@ -113,7 +113,7 @@ export class PgProc {
    * optimized away.) */
 
   @ViewColumn({ name: 'provolatile' })
-  public readonly provolatile!: unknown /* char */;
+  public readonly provolatile!: 'i' | 's' | 'v';
   /**
    * proparallel tells whether the function
    * can be safely run in parallel mode.
@@ -126,7 +126,7 @@ export class PgProc {
    * mode; the presence of such a function forces a serial execution plan. */
 
   @ViewColumn({ name: 'proparallel' })
-  public readonly proparallel!: unknown /* char */;
+  public readonly proparallel!: 's' | 'r' | 'u';
   /**
    * Number of input arguments */
 
@@ -149,7 +149,7 @@ export class PgProc {
    * the call signature of the function. */
 
   @ViewColumn({ name: 'proargtypes' })
-  public readonly proargtypes!: unknown /* oidvector */;
+  public readonly proargtypes!: number[] /* oidvector */;
   /**
    * An array of the data types of the function arguments.  This includes
    * all arguments (including OUT and
@@ -159,7 +159,7 @@ export class PgProc {
    * proargtypes is subscripted from 0. */
 
   @ViewColumn({ name: 'proallargtypes' })
-  public readonly proallargtypes!: unknown | null /* _oid */;
+  public readonly proallargtypes!: number | null /* _oid */;
   /**
    * An array of the modes of the function arguments, encoded as
    * i for IN arguments,
@@ -199,7 +199,7 @@ export class PgProc {
    * clause).  Null if none. */
 
   @ViewColumn({ name: 'protrftypes' })
-  public readonly protrftypes!: unknown | null /* _oid */;
+  public readonly protrftypes!: number | null /* _oid */;
   /**
    * This tells the function handler how to invoke the function.  It
    * might be the actual source code of the function for interpreted

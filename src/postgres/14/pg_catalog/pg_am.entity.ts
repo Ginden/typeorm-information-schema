@@ -38,7 +38,7 @@ export class PgAm {
    * i = index. */
 
   @ViewColumn({ name: 'amtype' })
-  public readonly amtype!: unknown /* char */;
+  public readonly amtype!: 't' | 'i';
 
   @ManyToOne(() => PgProc)
   @JoinColumn({

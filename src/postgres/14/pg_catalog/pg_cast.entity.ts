@@ -43,7 +43,7 @@ export class PgCast {
    * other cases. */
 
   @ViewColumn({ name: 'castcontext' })
-  public readonly castcontext!: unknown /* char */;
+  public readonly castcontext!: 'a' | 'i';
   /**
    * Indicates how the cast is performed.
    * f means that the function specified in the castfunc field is used.
@@ -51,5 +51,5 @@ export class PgCast {
    * b means that the types are binary-coercible, thus no conversion is required. */
 
   @ViewColumn({ name: 'castmethod' })
-  public readonly castmethod!: unknown /* char */;
+  public readonly castmethod!: 'f' | 'i' | 'b';
 }

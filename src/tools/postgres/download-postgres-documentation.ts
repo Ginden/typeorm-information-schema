@@ -32,7 +32,11 @@ export async function downloadPostgresDocumentation(engine: DatabaseEngine) {
       const outputPath = join(process.cwd(), 'artifacts', to);
       await writeFile(outputPath, body);
       await writeFile(outputPath + '.json', JSON.stringify(await promisify(parseString)(body), null, 1));
-      execSync(`<'${outputPath}' osx > '${outputPath}.xml'`);
+      try {
+        execSync(`<'${outputPath}' osx > '${outputPath}.xml'`);
+      } catch (e) {
+        console.error(e);
+      }
     }),
   );
 }

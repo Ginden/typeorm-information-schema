@@ -73,10 +73,10 @@ export class PgType {
   public readonly typanalyze!: unknown /* regproc */;
 
   @ViewColumn({ name: 'typalign' })
-  public readonly typalign!: unknown /* char */;
+  public readonly typalign!: 'c' | 's' | 'i' | 'd';
 
   @ViewColumn({ name: 'typstorage' })
-  public readonly typstorage!: unknown /* char */;
+  public readonly typstorage!: 'p' | 'e' | 'm' | 'x';
 
   @ViewColumn({ name: 'typnotnull' })
   public readonly typnotnull!: boolean /* bool */;

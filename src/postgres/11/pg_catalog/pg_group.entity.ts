@@ -15,5 +15,5 @@ export class PgGroup {
   public readonly grosysid!: number | null /* oid */;
 
   @ViewColumn({ name: 'grolist' })
-  public readonly grolist!: unknown | null /* _oid */;
+  public readonly grolist!: number | null /* _oid */;
 }

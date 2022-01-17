@@ -196,10 +196,13 @@ export class PgType {
    * specified boundary.  The alignment reference is the beginning
    * of the first datum in the sequence.
    * Possible values are:
-   * c = char alignment, i.e., no alignment needed.s = short alignment (2 bytes on most machines).i = int alignment (4 bytes on most machines).d = double alignment (8 bytes on many machines, but by no means all). */
+   * c = char alignment, i.e., no alignment needed.
+   * s = short alignment (2 bytes on most machines).
+   * i = int alignment (4 bytes on most machines).
+   * d = double alignment (8 bytes on many machines, but by no means all). */
 
   @ViewColumn({ name: 'typalign' })
-  public readonly typalign!: unknown /* char */;
+  public readonly typalign!: 'c' | 's' | 'i' | 'd';
   /**
    * typstorage tells for varlena
    * types (those with typlen = -1) if
@@ -221,7 +224,7 @@ export class PgType {
    * and x values are moved first). */
 
   @ViewColumn({ name: 'typstorage' })
-  public readonly typstorage!: unknown /* char */;
+  public readonly typstorage!: 'p' | 'e' | 'm' | 'x';
   /**
    * typnotnull represents a not-null
    * constraint on a type.  Used for domains only. */

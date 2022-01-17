@@ -41,7 +41,7 @@ export class PgConstraint {
    * x = exclusion constraint */
 
   @ViewColumn({ name: 'contype' })
-  public readonly contype!: unknown /* char */;
+  public readonly contype!: 'c' | 'f' | 'p' | 'u' | 't' | 'x';
   /**
    * Is the constraint deferrable? */
 
@@ -94,7 +94,7 @@ export class PgConstraint {
    * d = set default */
 
   @ViewColumn({ name: 'confupdtype' })
-  public readonly confupdtype!: unknown /* char */;
+  public readonly confupdtype!: 'a' | 'r' | 'c' | 'n' | 'd';
   /**
    * Foreign key deletion action code:
    * a = no action,
@@ -104,7 +104,7 @@ export class PgConstraint {
    * d = set default */
 
   @ViewColumn({ name: 'confdeltype' })
-  public readonly confdeltype!: unknown /* char */;
+  public readonly confdeltype!: 'a' | 'r' | 'c' | 'n' | 'd';
   /**
    * Foreign key match type:
    * f = full,
@@ -112,7 +112,7 @@ export class PgConstraint {
    * s = simple */
 
   @ViewColumn({ name: 'confmatchtype' })
-  public readonly confmatchtype!: unknown /* char */;
+  public readonly confmatchtype!: 'f' | 'p' | 's';
   /**
    * This constraint is defined locally for the relation.  Note that a
    * constraint can be locally defined and inherited simultaneously. */
@@ -137,32 +137,32 @@ export class PgConstraint {
    * triggers), list of the constrained columns */
 
   @ViewColumn({ name: 'conkey' })
-  public readonly conkey!: unknown | null /* _int2 */;
+  public readonly conkey!: number | null /* _int2 */;
   /**
    * If a foreign key, list of the referenced columns */
 
   @ViewColumn({ name: 'confkey' })
-  public readonly confkey!: unknown | null /* _int2 */;
+  public readonly confkey!: number | null /* _int2 */;
   /**
    * If a foreign key, list of the equality operators for PK = FK comparisons */
 
   @ViewColumn({ name: 'conpfeqop' })
-  public readonly conpfeqop!: unknown | null /* _oid */;
+  public readonly conpfeqop!: number | null /* _oid */;
   /**
    * If a foreign key, list of the equality operators for PK = PK comparisons */
 
   @ViewColumn({ name: 'conppeqop' })
-  public readonly conppeqop!: unknown | null /* _oid */;
+  public readonly conppeqop!: number | null /* _oid */;
   /**
    * If a foreign key, list of the equality operators for FK = FK comparisons */
 
   @ViewColumn({ name: 'conffeqop' })
-  public readonly conffeqop!: unknown | null /* _oid */;
+  public readonly conffeqop!: number | null /* _oid */;
   /**
    * If an exclusion constraint, list of the per-column exclusion operators */
 
   @ViewColumn({ name: 'conexclop' })
-  public readonly conexclop!: unknown | null /* _oid */;
+  public readonly conexclop!: number | null /* _oid */;
   /**
    * If a check constraint, an internal representation of the
    * expression.  (It's recommended to use

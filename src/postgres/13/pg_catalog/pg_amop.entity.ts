@@ -24,7 +24,7 @@ export class PgAmop {
   public readonly amopstrategy!: number /* int2 */;
 
   @ViewColumn({ name: 'amoppurpose' })
-  public readonly amoppurpose!: unknown /* char */;
+  public readonly amoppurpose!: 's' | 'o';
 
   @ViewColumn({ name: 'amopopr' })
   public readonly amopopr!: number /* oid */;

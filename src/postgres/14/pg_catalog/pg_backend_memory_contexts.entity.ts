@@ -36,25 +36,25 @@ export class PgBackendMemoryContexts {
    * Total bytes allocated for this memory context */
 
   @ViewColumn({ name: 'total_bytes' })
-  public readonly total_bytes!: string | null /* int8 */;
+  public readonly total_bytes!: `${number}` | null /* int8 */;
   /**
    * Total number of blocks allocated for this memory context */
 
   @ViewColumn({ name: 'total_nblocks' })
-  public readonly total_nblocks!: string | null /* int8 */;
+  public readonly total_nblocks!: `${number}` | null /* int8 */;
   /**
    * Free space in bytes */
 
   @ViewColumn({ name: 'free_bytes' })
-  public readonly free_bytes!: string | null /* int8 */;
+  public readonly free_bytes!: `${number}` | null /* int8 */;
   /**
    * Total number of free chunks */
 
   @ViewColumn({ name: 'free_chunks' })
-  public readonly free_chunks!: string | null /* int8 */;
+  public readonly free_chunks!: `${number}` | null /* int8 */;
   /**
    * Used space in bytes */
 
   @ViewColumn({ name: 'used_bytes' })
-  public readonly used_bytes!: string | null /* int8 */;
+  public readonly used_bytes!: `${number}` | null /* int8 */;
 }

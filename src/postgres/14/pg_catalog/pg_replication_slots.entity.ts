@@ -94,7 +94,8 @@ export class PgReplicationSlots {
    * Availability of WAL files claimed by this slot.
    * Possible values are:
    * reserved means that the claimed files
-   * are within max_wal_size.extended means
+   * are within max_wal_size.
+   * extended means
    * that max_wal_size is exceeded but the files are
    * still retained, either by the replication slot or
    * by wal_keep_size.
@@ -118,7 +119,7 @@ export class PgReplicationSlots {
    * is -1. */
 
   @ViewColumn({ name: 'safe_wal_size' })
-  public readonly safe_wal_size!: string | null /* int8 */;
+  public readonly safe_wal_size!: `${number}` | null /* int8 */;
   /**
    * True if the slot is enabled for decoding prepared transactions.  Always
    * false for physical slots. */

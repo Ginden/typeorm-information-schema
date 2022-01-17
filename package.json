@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "format": "prettier --write \"src/**/*.ts\"",
+    "format": "pprettier --write \"src/**/*.ts\"",
     "prebuild": "tsc && rimraf src/postgres",
     "build": "node dist/tools/generate.js",
     "postbuild": "tsc && npm run format && npm run lint",
@@ -28,6 +28,7 @@
   },
   "repository": "github:Ginden/typeorm-information-schema",
   "devDependencies": {
+    "@mixer/parallel-prettier": "^2.0.1",
     "@types/jsdom": "^16.2.13",
     "@types/lodash": "^4.14.177",
     "@types/node": "^16.11.9",

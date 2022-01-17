@@ -9,7 +9,7 @@ import { ViewEntity, ViewColumn } from 'typeorm';
 })
 export class PgStatArchiver {
   @ViewColumn({ name: 'archived_count' })
-  public readonly archived_count!: string | null /* int8 */;
+  public readonly archived_count!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'last_archived_wal' })
   public readonly last_archived_wal!: string | null /* text */;
@@ -18,7 +18,7 @@ export class PgStatArchiver {
   public readonly last_archived_time!: Date | null /* timestamptz */;
 
   @ViewColumn({ name: 'failed_count' })
-  public readonly failed_count!: string | null /* int8 */;
+  public readonly failed_count!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'last_failed_wal' })
   public readonly last_failed_wal!: string | null /* text */;

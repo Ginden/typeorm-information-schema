@@ -39,7 +39,7 @@ export class PgOperator {
    * or l = prefix operator (left) */
 
   @ViewColumn({ name: 'oprkind' })
-  public readonly oprkind!: unknown /* char */;
+  public readonly oprkind!: 'b' | 'l';
   /**
    * This operator supports merge joins */
 

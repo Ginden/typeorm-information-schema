@@ -29,15 +29,15 @@ export class PgRange {
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
-    name: 'rngcanonical',
-    referencedColumnName: 'oid',
-  })
-  readonly rngcanonical_rel?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
     name: 'rngsubdiff',
     referencedColumnName: 'oid',
   })
   readonly rngsubdiff_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'rngcanonical',
+    referencedColumnName: 'oid',
+  })
+  readonly rngcanonical_rel?: PgProc;
 }

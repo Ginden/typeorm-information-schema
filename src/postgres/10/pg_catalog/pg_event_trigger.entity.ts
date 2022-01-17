@@ -21,7 +21,7 @@ export class PgEventTrigger {
   public readonly evtfoid!: number /* oid */;
 
   @ViewColumn({ name: 'evtenabled' })
-  public readonly evtenabled!: unknown /* char */;
+  public readonly evtenabled!: 'O' | 'D' | 'R' | 'A';
 
   @ViewColumn({ name: 'evttags' })
   public readonly evttags!: string | null /* _text */;

@@ -24,7 +24,7 @@ export class PgTrigger {
   public readonly tgtype!: number /* int2 */;
 
   @ViewColumn({ name: 'tgenabled' })
-  public readonly tgenabled!: unknown /* char */;
+  public readonly tgenabled!: 'O' | 'D' | 'R' | 'A';
 
   @ViewColumn({ name: 'tgisinternal' })
   public readonly tgisinternal!: boolean /* bool */;
@@ -48,7 +48,7 @@ export class PgTrigger {
   public readonly tgnargs!: number /* int2 */;
 
   @ViewColumn({ name: 'tgattr' })
-  public readonly tgattr!: unknown /* int2vector */;
+  public readonly tgattr!: number[] /* int2vector */;
 
   @ViewColumn({ name: 'tgargs' })
   public readonly tgargs!: unknown /* bytea */;

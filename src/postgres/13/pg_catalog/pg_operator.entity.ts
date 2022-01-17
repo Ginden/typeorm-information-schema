@@ -22,7 +22,7 @@ export class PgOperator {
   public readonly oprowner!: number /* oid */;
 
   @ViewColumn({ name: 'oprkind' })
-  public readonly oprkind!: unknown /* char */;
+  public readonly oprkind!: 'b' | 'l';
 
   @ViewColumn({ name: 'oprcanmerge' })
   public readonly oprcanmerge!: boolean /* bool */;
@@ -63,15 +63,15 @@ export class PgOperator {
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
-    name: 'oprjoin',
-    referencedColumnName: 'oid',
-  })
-  readonly oprjoin_rel?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
     name: 'oprcode',
     referencedColumnName: 'oid',
   })
   readonly oprcode_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'oprjoin',
+    referencedColumnName: 'oid',
+  })
+  readonly oprjoin_rel?: PgProc;
 }

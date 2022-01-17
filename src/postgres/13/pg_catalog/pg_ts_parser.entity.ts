@@ -35,24 +35,10 @@ export class PgTsParser {
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
-    name: 'prsstart',
-    referencedColumnName: 'oid',
-  })
-  readonly prsstart_rel?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
     name: 'prslextype',
     referencedColumnName: 'oid',
   })
   readonly prslextype_rel?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
-    name: 'prsend',
-    referencedColumnName: 'oid',
-  })
-  readonly prsend_rel?: PgProc;
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
@@ -67,4 +53,18 @@ export class PgTsParser {
     referencedColumnName: 'oid',
   })
   readonly prstoken_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'prsend',
+    referencedColumnName: 'oid',
+  })
+  readonly prsend_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'prsstart',
+    referencedColumnName: 'oid',
+  })
+  readonly prsstart_rel?: PgProc;
 }

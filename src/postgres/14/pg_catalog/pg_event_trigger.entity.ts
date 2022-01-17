@@ -46,7 +46,7 @@ export class PgEventTrigger {
    * A = trigger fires always. */
 
   @ViewColumn({ name: 'evtenabled' })
-  public readonly evtenabled!: unknown /* char */;
+  public readonly evtenabled!: 'O' | 'D' | 'R' | 'A';
   /**
    * Command tags for which this trigger will fire.  If NULL, the firing
    * of this trigger is not restricted on the basis of the command tag. */

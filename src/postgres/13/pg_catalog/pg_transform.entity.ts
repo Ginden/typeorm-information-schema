@@ -26,15 +26,15 @@ export class PgTransform {
 
   @ManyToOne(() => PgProc)
   @JoinColumn({
-    name: 'trffromsql',
-    referencedColumnName: 'oid',
-  })
-  readonly trffromsql_rel?: PgProc;
-
-  @ManyToOne(() => PgProc)
-  @JoinColumn({
     name: 'trftosql',
     referencedColumnName: 'oid',
   })
   readonly trftosql_rel?: PgProc;
+
+  @ManyToOne(() => PgProc)
+  @JoinColumn({
+    name: 'trffromsql',
+    referencedColumnName: 'oid',
+  })
+  readonly trffromsql_rel?: PgProc;
 }

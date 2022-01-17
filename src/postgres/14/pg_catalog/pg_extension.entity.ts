@@ -48,7 +48,7 @@ export class PgExtension {
    * table(s), or NULL if none */
 
   @ViewColumn({ name: 'extconfig' })
-  public readonly extconfig!: unknown | null /* _oid */;
+  public readonly extconfig!: number | null /* _oid */;
   /**
    * Array of WHERE-clause filter conditions for the
    * extension's configuration table(s), or NULL if none */

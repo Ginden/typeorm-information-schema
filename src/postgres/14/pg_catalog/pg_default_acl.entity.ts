@@ -37,7 +37,7 @@ export class PgDefaultAcl {
    * n = schema */
 
   @ViewColumn({ name: 'defaclobjtype' })
-  public readonly defaclobjtype!: unknown /* char */;
+  public readonly defaclobjtype!: 'r' | 'S' | 'f' | 'T' | 'n';
   /**
    * Access privileges that this type of object should have on creation */
 

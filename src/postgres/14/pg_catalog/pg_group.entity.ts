@@ -30,5 +30,5 @@ export class PgGroup {
    * An array containing the IDs of the roles in this group */
 
   @ViewColumn({ name: 'grolist' })
-  public readonly grolist!: unknown | null /* _oid */;
+  public readonly grolist!: number | null /* _oid */;
 }

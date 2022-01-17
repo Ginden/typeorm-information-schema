@@ -4,12 +4,20 @@ import { ViewEntity, ViewColumn } from 'typeorm';
 /**
  *    The pg_cursors view lists the cursors that
  *    are currently available. Cursors can be defined in several ways:
- *          via the DECLARE
+ *                   via the DECLARE
  *       statement in SQL
- *            via the Bind message in the frontend/backend protocol, as
+ *
+ *
+ *
+ *                via the Bind message in the frontend/backend protocol, as
  *       described in >
- *            via the Server Programming Interface (SPI), as described in
+ *
+ *
+ *
+ *                via the Server Programming Interface (SPI), as described in
  *       >
+ *
+ *
  *
  *
  *    The pg_cursors view displays cursors
@@ -19,10 +27,11 @@ import { ViewEntity, ViewColumn } from 'typeorm';
  *    cursors are only present in the view until the end of their
  *    creating transaction.
  *
- *         Cursors are used internally to implement some of the components
+ *             Cursors are used internally to implement some of the components
  *      of PostgreSQL, such as procedural languages.
  *      Therefore, the pg_cursors view might include cursors
  *      that have not been explicitly created by the user.
+ *
  *
  *    */
 

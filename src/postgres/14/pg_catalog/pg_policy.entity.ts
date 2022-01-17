@@ -41,7 +41,7 @@ export class PgPolicy {
    * or * for all */
 
   @ViewColumn({ name: 'polcmd' })
-  public readonly polcmd!: unknown /* char */;
+  public readonly polcmd!: 'r' | 'a' | 'w' | 'd' | '*';
   /**
    * Is the policy permissive or restrictive? */
 
@@ -53,7 +53,7 @@ export class PgPolicy {
    * (and normally appears alone in the array) */
 
   @ViewColumn({ name: 'polroles' })
-  public readonly polroles!: unknown /* _oid */;
+  public readonly polroles!: number /* _oid */;
   /**
    * The expression tree to be added to the security barrier qualifications for queries that use the table */
 

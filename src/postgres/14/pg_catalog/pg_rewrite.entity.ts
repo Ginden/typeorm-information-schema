@@ -32,7 +32,7 @@ export class PgRewrite {
    * > */
 
   @ViewColumn({ name: 'ev_type' })
-  public readonly ev_type!: unknown /* char */;
+  public readonly ev_type!: '1' | '2' | '3' | '4';
   /**
    * Controls in which > modes
    * the rule fires.
@@ -42,7 +42,7 @@ export class PgRewrite {
    * A = rule fires always. */
 
   @ViewColumn({ name: 'ev_enabled' })
-  public readonly ev_enabled!: unknown /* char */;
+  public readonly ev_enabled!: 'O' | 'D' | 'R' | 'A';
   /**
    * True if the rule is an INSTEAD rule */
 

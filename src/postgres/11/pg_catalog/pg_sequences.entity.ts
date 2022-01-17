@@ -22,25 +22,25 @@ export class PgSequences {
   public readonly data_type!: unknown | null /* regtype */;
 
   @ViewColumn({ name: 'start_value' })
-  public readonly start_value!: string | null /* int8 */;
+  public readonly start_value!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'min_value' })
-  public readonly min_value!: string | null /* int8 */;
+  public readonly min_value!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'max_value' })
-  public readonly max_value!: string | null /* int8 */;
+  public readonly max_value!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'increment_by' })
-  public readonly increment_by!: string | null /* int8 */;
+  public readonly increment_by!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'cycle' })
   public readonly cycle!: boolean | null /* bool */;
 
   @ViewColumn({ name: 'cache_size' })
-  public readonly cache_size!: string | null /* int8 */;
+  public readonly cache_size!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'last_value' })
-  public readonly last_value!: string | null /* int8 */;
+  public readonly last_value!: `${number}` | null /* int8 */;
 
   @ManyToOne(() => PgType)
   @JoinColumn({

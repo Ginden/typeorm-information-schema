@@ -57,7 +57,7 @@ export class PgClass {
   public readonly relpersistence!: unknown /* char */;
 
   @ViewColumn({ name: 'relkind' })
-  public readonly relkind!: unknown /* char */;
+  public readonly relkind!: 'r' | 'i' | 'S' | 't' | 'v' | 'm' | 'c' | 'f' | 'p' | 'I';
 
   @ViewColumn({ name: 'relnatts' })
   public readonly relnatts!: number /* int2 */;

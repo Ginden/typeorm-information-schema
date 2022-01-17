@@ -24,8 +24,8 @@ export class PgStatioAllIndexes {
   public readonly indexrelname!: unknown | null /* name */;
 
   @ViewColumn({ name: 'idx_blks_read' })
-  public readonly idx_blks_read!: string | null /* int8 */;
+  public readonly idx_blks_read!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'idx_blks_hit' })
-  public readonly idx_blks_hit!: string | null /* int8 */;
+  public readonly idx_blks_hit!: `${number}` | null /* int8 */;
 }

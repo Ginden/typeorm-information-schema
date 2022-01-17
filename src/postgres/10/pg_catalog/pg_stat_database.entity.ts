@@ -18,43 +18,43 @@ export class PgStatDatabase {
   public readonly numbackends!: number | null /* int4 */;
 
   @ViewColumn({ name: 'xact_commit' })
-  public readonly xact_commit!: string | null /* int8 */;
+  public readonly xact_commit!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'xact_rollback' })
-  public readonly xact_rollback!: string | null /* int8 */;
+  public readonly xact_rollback!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'blks_read' })
-  public readonly blks_read!: string | null /* int8 */;
+  public readonly blks_read!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'blks_hit' })
-  public readonly blks_hit!: string | null /* int8 */;
+  public readonly blks_hit!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tup_returned' })
-  public readonly tup_returned!: string | null /* int8 */;
+  public readonly tup_returned!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tup_fetched' })
-  public readonly tup_fetched!: string | null /* int8 */;
+  public readonly tup_fetched!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tup_inserted' })
-  public readonly tup_inserted!: string | null /* int8 */;
+  public readonly tup_inserted!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tup_updated' })
-  public readonly tup_updated!: string | null /* int8 */;
+  public readonly tup_updated!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'tup_deleted' })
-  public readonly tup_deleted!: string | null /* int8 */;
+  public readonly tup_deleted!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'conflicts' })
-  public readonly conflicts!: string | null /* int8 */;
+  public readonly conflicts!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'temp_files' })
-  public readonly temp_files!: string | null /* int8 */;
+  public readonly temp_files!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'temp_bytes' })
-  public readonly temp_bytes!: string | null /* int8 */;
+  public readonly temp_bytes!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'deadlocks' })
-  public readonly deadlocks!: string | null /* int8 */;
+  public readonly deadlocks!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'blk_read_time' })
   public readonly blk_read_time!: number | null /* float8 */;

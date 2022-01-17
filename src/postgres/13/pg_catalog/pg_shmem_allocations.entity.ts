@@ -12,11 +12,11 @@ export class PgShmemAllocations {
   public readonly name!: string | null /* text */;
 
   @ViewColumn({ name: 'off' })
-  public readonly off!: string | null /* int8 */;
+  public readonly off!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'size' })
-  public readonly size!: string | null /* int8 */;
+  public readonly size!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'allocated_size' })
-  public readonly allocated_size!: string | null /* int8 */;
+  public readonly allocated_size!: `${number}` | null /* int8 */;
 }

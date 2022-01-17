@@ -36,7 +36,7 @@ export class PgInitPrivs {
    * A code defining the type of initial privilege of this object; see text */
 
   @ViewColumn({ name: 'privtype' })
-  public readonly privtype!: unknown /* char */;
+  public readonly privtype!: 'i' | 'e';
   /**
    * The initial access privileges; see
    * > for details */

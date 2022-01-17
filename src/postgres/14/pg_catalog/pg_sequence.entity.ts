@@ -28,27 +28,27 @@ export class PgSequence {
    * Start value of the sequence */
 
   @ViewColumn({ name: 'seqstart' })
-  public readonly seqstart!: string /* int8 */;
+  public readonly seqstart!: `${number}` /* int8 */;
   /**
    * Increment value of the sequence */
 
   @ViewColumn({ name: 'seqincrement' })
-  public readonly seqincrement!: string /* int8 */;
+  public readonly seqincrement!: `${number}` /* int8 */;
   /**
    * Maximum value of the sequence */
 
   @ViewColumn({ name: 'seqmax' })
-  public readonly seqmax!: string /* int8 */;
+  public readonly seqmax!: `${number}` /* int8 */;
   /**
    * Minimum value of the sequence */
 
   @ViewColumn({ name: 'seqmin' })
-  public readonly seqmin!: string /* int8 */;
+  public readonly seqmin!: `${number}` /* int8 */;
   /**
    * Cache size of the sequence */
 
   @ViewColumn({ name: 'seqcache' })
-  public readonly seqcache!: string /* int8 */;
+  public readonly seqcache!: `${number}` /* int8 */;
   /**
    * Whether the sequence cycles */
 

@@ -18,8 +18,8 @@ export class PgStatioSysSequences {
   public readonly relname!: unknown | null /* name */;
 
   @ViewColumn({ name: 'blks_read' })
-  public readonly blks_read!: string | null /* int8 */;
+  public readonly blks_read!: `${number}` | null /* int8 */;
 
   @ViewColumn({ name: 'blks_hit' })
-  public readonly blks_hit!: string | null /* int8 */;
+  public readonly blks_hit!: `${number}` | null /* int8 */;
 }

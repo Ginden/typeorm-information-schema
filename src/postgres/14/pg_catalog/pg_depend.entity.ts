@@ -57,5 +57,5 @@ export class PgDepend {
    * A code defining the specific semantics of this dependency relationship; see text */
 
   @ViewColumn({ name: 'deptype' })
-  public readonly deptype!: unknown /* char */;
+  public readonly deptype!: 'n' | 'a' | 'i' | 'P' | 'S' | 'e' | 'x' | 'p';
 }
